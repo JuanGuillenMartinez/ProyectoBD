@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Proyecto "Inventario"</string>
+    <string name="texto_id">ID</string>
+    <string name="texto_nombre">Nombre</string>
+    <string name="texto_precio">Precio</string>
+    <string name="texto_existencia">Existencias</string>
+    <string name="texto_insertar">Insertar</string>
+    <string name="texto_actualizar">Actualizar</string>
+    <string name="texto_eliminar">Eliminar</string>
+    <string name="texto_ver">Ver Registros</string>
+</resources>
