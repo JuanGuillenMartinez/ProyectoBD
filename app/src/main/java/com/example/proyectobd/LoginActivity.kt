@@ -17,13 +17,14 @@ class LoginActivity : AppCompatActivity() {
 
     fun onClick(v: View?) {
         if(btnIngresar.isClickable) {
-            val intent: Intent = Intent(this, MainActivity::class.java)
+            val intent: Intent = Intent(this, ProductosActivity::class.java)
             startActivity(intent)
         }
     }
     fun activar(v: View?) {
         if(btnRegistrar.isClickable) {
-            Toast.makeText(this, "Prueba de ejecucion de los listener", Toast.LENGTH_LONG).show()
+            val intent: Intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 
