@@ -8,4 +8,8 @@
     <string name="texto_actualizar">Actualizar</string>
     <string name="texto_eliminar">Eliminar</string>
     <string name="texto_ver">Ver Registros</string>
+    <string name="texto_correo">Correo Electrónico</string>
+    <string name="texto_password">Contraseña</string>
+    <string name="texto_ingresar">Ingresar</string>
+    <string name="texto_registrar">Registrar</string>
 </resources>
