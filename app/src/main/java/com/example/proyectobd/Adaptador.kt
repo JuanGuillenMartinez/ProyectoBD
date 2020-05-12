@@ -22,6 +22,7 @@ class Adaptador(var lista: ArrayList<Productos>) : RecyclerView.Adapter<Adaptado
         val context: Context = itemView.context
 
         fun bindItems (datos:Productos) {
+
             val nombre:TextView=itemView.findViewById(R.id.textv_titulo)
             val precio:TextView=itemView.findViewById(R.id.textv_precio)
             val foto:ImageView=itemView.findViewById(R.id.thumbnail)
@@ -32,7 +33,7 @@ class Adaptador(var lista: ArrayList<Productos>) : RecyclerView.Adapter<Adaptado
             Glide.with(itemView.context).load(datos.thumbnail).into(foto)
 
             foto.setOnClickListener {
-                Toast.makeText(itemView.context, "Nada ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(itemView.context, "Producto: ${datos.nombreProducto} ", Toast.LENGTH_SHORT).show()
             }
 
             opciones.setOnClickListener {

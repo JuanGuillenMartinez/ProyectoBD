@@ -4,8 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -17,7 +15,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun onClick(v: View?) {
         if(btnIngresar.isClickable) {
-            val intent: Intent = Intent(this, ProductosActivity::class.java)
+            val intent: Intent = Intent(this, RecyclerActivity::class.java)
             startActivity(intent)
         }
     }
