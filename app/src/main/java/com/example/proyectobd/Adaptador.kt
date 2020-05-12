@@ -40,7 +40,8 @@ class Adaptador(var lista: ArrayList<Productos>) : RecyclerView.Adapter<Adaptado
                 popMenu.setOnMenuItemClickListener { item ->
                     when(item.itemId) {
                         R.id.mnitem_informacion -> {
-                            Toast.makeText(context, "Hola", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(context, MainActivity::class.java)
+                            context.startActivity(intent)
                             true
                         }
                         else -> false
@@ -49,7 +50,6 @@ class Adaptador(var lista: ArrayList<Productos>) : RecyclerView.Adapter<Adaptado
                 popMenu.inflate(R.menu.mn_opciones)
                 popMenu.show()
             }
-
 
         }
 
