@@ -39,18 +39,11 @@ class FormActivity : AppCompatActivity() {
 
         val objeto = intent.extras
         val producto: Productos = objeto?.getSerializable("obj") as Productos
-
-        mostrarProducto(producto)
+        
         insertarDatos()
         actualizarDatos()
         borrarDatos()
         mostrarTodos()
-
-    }
-
-    fun mostrarProducto(producto: Productos) {
-
-
 
     }
 

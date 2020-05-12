@@ -42,11 +42,23 @@ class Adaptador(var lista: ArrayList<Productos>) : RecyclerView.Adapter<Adaptado
                 popMenu.setOnMenuItemClickListener { item ->
                     when(item.itemId) {
                         R.id.mnitem_informacion -> {
+
+                            val intent = Intent(context, InformationActivity::class.java)
+                            val bundle = Bundle()
+                            bundle.putSerializable("obj", producto)
+                            intent.putExtras(bundle)
+                            context.startActivity(intent, bundle)
+
+                            true
+                        }
+                        R.id.mnitem_modificar -> {
+
                             val intent = Intent(context, FormActivity::class.java)
                             val bundle = Bundle()
                             bundle.putSerializable("obj", producto)
                             intent.putExtras(bundle)
                             context.startActivity(intent, bundle)
+
                             true
                         }
                         else -> false
