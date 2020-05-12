@@ -8,12 +8,12 @@ import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
 
-class MainActivity : AppCompatActivity() {
+class FormActivity : AppCompatActivity() {
 
     internal var dbHelper = DatabaseHelper(this)
 
     fun mostrarToast(texto: String) {
-        Toast.makeText(this@MainActivity, texto, Toast.LENGTH_LONG).show()
+        Toast.makeText(this@FormActivity, texto, Toast.LENGTH_LONG).show()
     }
 
     fun mostrarDialogo(titulo: String, mensaje: String) {
@@ -37,10 +37,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val objeto = intent.extras
+        val producto: Productos = objeto?.getSerializable("obj") as Productos
+
+        mostrarProducto(producto)
         insertarDatos()
         actualizarDatos()
         borrarDatos()
         mostrarTodos()
+
+    }
+
+    fun mostrarProducto(producto: Productos) {
+
+
 
     }
 

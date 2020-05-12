@@ -2,9 +2,8 @@ package com.example.proyectobd
 
 import android.content.Context
 import android.content.Intent
-import android.media.Image
+import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -20,8 +19,11 @@ class Adaptador(var lista: ArrayList<Productos>) : RecyclerView.Adapter<Adaptado
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
         val context: Context = itemView.context
+        var producto: Productos? = null
 
-        fun bindItems (datos:Productos) {
+        fun bindItems (datos: Productos) {
+
+            producto = datos
             val nombre:TextView=itemView.findViewById(R.id.textv_titulo)
             val precio:TextView=itemView.findViewById(R.id.textv_precio)
             val foto:ImageView=itemView.findViewById(R.id.thumbnail)
@@ -32,7 +34,7 @@ class Adaptador(var lista: ArrayList<Productos>) : RecyclerView.Adapter<Adaptado
             Glide.with(itemView.context).load(datos.thumbnail).into(foto)
 
             foto.setOnClickListener {
-                Toast.makeText(itemView.context, "Nada ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(itemView.context, "Producto: ${datos.nombreProducto} ", Toast.LENGTH_SHORT).show()
             }
 
             opciones.setOnClickListener {
@@ -40,8 +42,11 @@ class Adaptador(var lista: ArrayList<Productos>) : RecyclerView.Adapter<Adaptado
                 popMenu.setOnMenuItemClickListener { item ->
                     when(item.itemId) {
                         R.id.mnitem_informacion -> {
-                            val intent = Intent(context, MainActivity::class.java)
-                            context.startActivity(intent)
+                            val intent = Intent(context, FormActivity::class.java)
+                            val bundle = Bundle()
+                            bundle.putSerializable("obj", producto)
+                            intent.putExtras(bundle)
+                            context.startActivity(intent, bundle)
                             true
                         }
                         else -> false
