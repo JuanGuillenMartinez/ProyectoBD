@@ -6,113 +6,135 @@
     android:layout_height="match_parent"
     tools:context=".InformationActivity">
 
-    <TextView
-        android:id="@+id/campo_existencia"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="36dp"
-        android:ems="10"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titulo_existencia" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/campo_precio"
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="36dp"
-        android:ems="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titulo_precio" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/campo_id"
-        android:layout_width="0dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="36dp"
-        android:ems="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="24dp"
+                android:alpha="@dimen/material_emphasis_high_type"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/producto" />
 
-    <TextView
-        android:id="@+id/campo_nombre"
-        android:layout_width="0dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="36dp"
-        android:ems="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/campo_id" />
+            <TextView
+                android:id="@+id/titulo_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="36dp"
+                android:fontFamily="@font/source_code_pro_semibold"
+                android:text="@string/texto_id"
+                android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/btn_eliminar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="36dp"
-        android:text="@string/texto_eliminar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_actualizar"
-        android:background="@drawable/button_cancel"/>
+            <TextView
+                android:id="@+id/campo_id"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:ems="10"
+                android:fontFamily="monospace"
+                android:textSize="14sp" />
 
-    <Button
-        android:id="@+id/btn_actualizar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="36dp"
-        android:text="@string/texto_actualizar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/campo_existencia"
-        android:background="@drawable/button_update"/>
+            <TextView
+                android:id="@+id/titulo_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:fontFamily="@font/source_code_pro_semibold"
+                android:text="@string/texto_nombre"
+                android:textSize="16sp" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/producto" />
+            <TextView
+                android:id="@+id/campo_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:fontFamily="monospace"
+                android:textSize="14sp" />
 
-    <TextView
-        android:id="@+id/titulo_precio"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="36dp"
-        android:text="@string/texto_precio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            <TextView
+                android:id="@+id/titulo_precio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:fontFamily="@font/source_code_pro_semibold"
+                android:text="@string/texto_precio"
+                android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/titulo_existencia"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="36dp"
-        android:text="@string/texto_existencia"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/campo_precio" />
+            <TextView
+                android:id="@+id/campo_precio"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:ems="10"
+                android:fontFamily="monospace"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/titulo_existencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:fontFamily="@font/source_code_pro_semibold"
+                android:text="@string/texto_existencia"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/campo_existencia"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:ems="10"
+                android:fontFamily="monospace"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn_actualizar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/button_update"
+                android:text="@string/texto_actualizar" />
+
+            <Button
+                android:id="@+id/btn_eliminar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/button_cancel"
+                android:text="@string/texto_eliminar" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
