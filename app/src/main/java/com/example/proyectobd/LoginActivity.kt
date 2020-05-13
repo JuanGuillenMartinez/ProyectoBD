@@ -22,8 +22,23 @@ class LoginActivity : AppCompatActivity() , View.OnClickListener {
 
         when(v.id) {
             R.id.btnIngresar -> {
-                val intent: Intent = Intent(this, RecyclerActivity::class.java)
-                startActivity(intent)
+                val db = DatabaseHelper(this)
+                val correo = text_correo.text.toString()
+                val pass = text_pass.text.toString()
+
+                if(db.validarUsuario(correo, pass)) {
+                    usuario = db.usuario
+                    val intent: Intent = Intent(this, RecyclerActivity::class.java)
+                    val bundle = Bundle()
+                    bundle.putSerializable("obj", usuario)
+                    intent.putExtras(bundle)
+                    text_pass.setText("")
+                    startActivity(intent, bundle)
+                } else {
+                    Toast.makeText(this, "Error al ingresar", Toast.LENGTH_LONG).show()
+                    text_pass.setText("")
+                }
+
             }
             R.id.btnRegistrar -> {
                 val intent: Intent = Intent(this, SiginActivity::class.java)
@@ -52,12 +67,12 @@ class LoginActivity : AppCompatActivity() , View.OnClickListener {
         }
     }*/
 
-    fun validarUsuario(user: Usuario) : Boolean {
+    /*fun validarUsuario(user: Usuario) : Boolean {
 
         val db = DatabaseHelper(this)
         val resultado = db.obtenerUsuario(user.correoElectronico, user.contraseña)
         return true
 
-    }
+    }*/
 
 }

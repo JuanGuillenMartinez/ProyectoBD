@@ -5,9 +5,12 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.widget.Toast
 
 class DatabaseHelper (context: Context) :
     SQLiteOpenHelper( context, nomDB, null, 1) {
+
+    lateinit var usuario: Usuario
 
     companion object {
 
@@ -59,6 +62,37 @@ class DatabaseHelper (context: Context) :
     fun borrar(id: String) : Int {
         val db = this.writableDatabase
         return db.delete(nomTabla, "id_producto = ?", arrayOf(id))
+    }
+
+    fun registrarUsuario(correo: String, pass: String) : Boolean {
+
+        try {
+            val db = this.writableDatabase
+            val cv = ContentValues()
+            cv.put("correo_electronico", correo)
+            cv.put("contraseña", pass)
+            db.insert("usuarios", null, cv)
+            return true
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return false
+        }
+
+    }
+
+    fun validarUsuario(correo: String, pass: String) : Boolean {
+
+        val db = this.writableDatabase
+        val args = arrayOf(correo, pass)
+        val resultado = db.rawQuery("SELECT * FROM usuarios WHERE correo_electronico=? AND contraseña = ?" , args)
+
+        while (resultado.moveToNext()) {
+            val correo = resultado.getString(1)
+            val pass = resultado.getString(2)
+            usuario = Usuario(correo, pass)
+            return  true
+        }
+        return false
     }
 
     val obtenerDatos : Cursor

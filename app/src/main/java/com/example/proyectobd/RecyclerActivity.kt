@@ -12,6 +12,10 @@ class RecyclerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
 
+        val objeto = intent.extras
+        val usuario: Usuario = objeto?.getSerializable("obj") as Usuario
+
+
         mostrarRecycler()
 
     }
