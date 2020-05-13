@@ -12,4 +12,7 @@
     <string name="texto_password">Contraseña</string>
     <string name="texto_ingresar">Ingresar</string>
     <string name="texto_registrar">Registrar</string>
+    <string name="string_nombre_usuario">Nombre de usuario</string>
+    <string name="string_iniciar_sesion">Iniciar Sesion</string>
+    <string name="string_registro">Registro de Usuario</string>
 </resources>

@@ -23,6 +23,8 @@ class DatabaseHelper (context: Context) :
     override fun onCreate(db: SQLiteDatabase) {
             db.execSQL( "CREATE TABLE $nomTabla (id_producto INTEGER PRIMARY KEY AUTOINCREMENT, " +
                             "nombre_producto TEXT, precio REAL, existencia INTEGER)" )
+            db.execSQL("CREATE TABLE usuarios (id_usuario INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                            "correo_electronico TEXT, contraseña TEXT)")
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
@@ -65,5 +67,33 @@ class DatabaseHelper (context: Context) :
             val resultado = db.rawQuery("SELECT * FROM " + nomTabla, null)
             return resultado
         }
+
+    /*fun obtenerUsuario(correo: String, pass: String) : Usuario {
+
+        val db = this.writableDatabase
+        val array = arrayOf(correo, pass)
+        val resultado = db.rawQuery("SELECT * FROM usuarios WHERE correo_electronico = ? AND contraseña = ? ", array)
+        val id = resultado.getString(0)
+        val correo = resultado.getString(1)
+        val contraseña = resultado.getString(2)
+
+        val usuario = Usuario(correo, contraseña)
+
+        return usuario
+    }
+
+    fun registrarUsuario(correo: String, pass: String) : Boolean {
+
+        val db = this.writableDatabase
+        if(db.isOpen) {
+            val cv = ContentValues()
+            cv.put("correo_electronico", correo)
+            cv.put("contraseña", pass)
+            db.insert("usuarios", null, cv)
+            return true
+        } else {
+            return false
+        }
+    }*/
 
 }
