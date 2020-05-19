@@ -1,7 +1,10 @@
 package com.example.proyectobd
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_recycler.*
@@ -23,6 +26,33 @@ class RecyclerActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         mostrarRecycler()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inf = menuInflater
+        inf.inflate(R.menu.mn_insertar, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId) {
+            R.id.mnitem_producto -> {
+
+                val intent = Intent(this, FormActivity::class.java)
+                val bundle = Bundle()
+                val producto = Productos(0, "Desconocido", 1.0f, 1, R.drawable.ic_crop_3_2_black_24dp)
+                bundle.putSerializable("obj", producto)
+                intent.putExtras(bundle)
+                this.startActivity(intent, bundle)
+
+                true
+            }
+
+            else -> false
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     fun mostrarRecycler() {

@@ -51,7 +51,7 @@ class Adaptador(var lista: ArrayList<Productos>) : RecyclerView.Adapter<Adaptado
 
                             true
                         }
-                        R.id.mnitem_modificar -> {
+                        R.id.mnitem_producto -> {
 
                             val intent = Intent(context, FormActivity::class.java)
                             val bundle = Bundle()
