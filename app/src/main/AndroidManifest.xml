@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SiginActivity"></activity>
+        <activity android:name=".InsertActivity"></activity>
+        <activity android:name=".SiginActivity" />
         <activity android:name=".InformationActivity" />
         <activity android:name=".RecyclerActivity" />
         <activity android:name=".LoginActivity">

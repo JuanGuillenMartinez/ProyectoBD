@@ -39,12 +39,8 @@ class RecyclerActivity : AppCompatActivity() {
         when(item.itemId) {
             R.id.mnitem_producto -> {
 
-                val intent = Intent(this, FormActivity::class.java)
-                val bundle = Bundle()
-                val producto = Productos(0, "Desconocido", 1.0f, 1, R.drawable.ic_crop_3_2_black_24dp)
-                bundle.putSerializable("obj", producto)
-                intent.putExtras(bundle)
-                this.startActivity(intent, bundle)
+                val intent = Intent(this, InsertActivity::class.java)
+                this.startActivity(intent)
 
                 true
             }
