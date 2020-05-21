@@ -47,7 +47,7 @@ class Adaptador(var lista: ArrayList<Productos>) : RecyclerView.Adapter<Adaptado
                             val bundle = Bundle()
                             bundle.putSerializable("obj", producto)
                             intent.putExtras(bundle)
-                            context.startActivity(intent, bundle)
+                            context.startActivity(intent)
 
                             true
                         }
@@ -57,7 +57,7 @@ class Adaptador(var lista: ArrayList<Productos>) : RecyclerView.Adapter<Adaptado
                             val bundle = Bundle()
                             bundle.putSerializable("obj", producto)
                             intent.putExtras(bundle)
-                            context.startActivity(intent, bundle)
+                            context.startActivity(intent)
 
                             true
                         }

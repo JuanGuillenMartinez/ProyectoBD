@@ -27,13 +27,14 @@ class LoginActivity : AppCompatActivity() , View.OnClickListener {
                 val pass = text_pass.text.toString()
 
                 if(db.validarUsuario(correo, pass)) {
+                    Toast.makeText(this, "Usuario validado", Toast.LENGTH_LONG).show()
                     usuario = db.usuario
-                    val intent: Intent = Intent(this, RecyclerActivity::class.java)
+                    val otrointent: Intent = Intent(this, RecyclerActivity::class.java)
                     val bundle = Bundle()
                     bundle.putSerializable("obj", usuario)
-                    intent.putExtras(bundle)
+                    otrointent.putExtras(bundle)
                     text_pass.setText("")
-                    startActivity(intent, bundle)
+                    this.startActivity(otrointent)
                 } else {
                     Toast.makeText(this, "Error al ingresar", Toast.LENGTH_LONG).show()
                     text_pass.setText("")

@@ -83,7 +83,7 @@ class RecyclerActivity : AppCompatActivity() {
                 nombre=resultado.getString(1)
                 precio=resultado.getString(2).toFloat()
                 existencia=resultado.getString(3).toInt()
-                producto = Productos(id, nombre, precio, existencia, R.drawable.logo_tecnm)
+                producto = Productos(id, nombre, precio, existencia, R.drawable.producto)
                 lista.add(producto)
                 producto = null
 

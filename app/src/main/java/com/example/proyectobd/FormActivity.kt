@@ -2,6 +2,7 @@ package com.example.proyectobd
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -39,7 +40,8 @@ class FormActivity : AppCompatActivity() {
 
         val objeto = intent.extras
         val producto: Productos = objeto?.getSerializable("obj") as Productos
-        
+        txt_id.setText(producto.idProducto.toString())
+
         insertarDatos()
         actualizarDatos()
         borrarDatos()
