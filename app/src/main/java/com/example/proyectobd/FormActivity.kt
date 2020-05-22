@@ -10,6 +10,7 @@ import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
+import com.example.proyectobd.webservice.Consultas
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import java.lang.Exception
@@ -125,36 +126,15 @@ class FormActivity : AppCompatActivity(), View.OnClickListener {
         when(v.id) {
             R.id.btn_agregar->{
 
+                val conexion = Consultas(this)
                 val nombre = txt_nombre.text.toString()
                 val precio = txt_precio.text.toString()
                 val categoria = txt_existencia.text.toString()
 
-                agregarProducto(nombre, precio, categoria)
+                conexion.agregarProducto(nombre, precio, categoria)
 
             }
         }
-    }
-
-    fun agregarProducto(nombre: String, precio: String, categoria: String) {
-
-        AndroidNetworking.post("https://mysterious-woodland-17155.herokuapp.com/rest/INSERT_producto_POST.php")
-            .addBodyParameter("descripcion", nombre)
-            .addBodyParameter("precio", precio)
-            .addBodyParameter("categoria", categoria)
-            .setPriority(Priority.MEDIUM)
-            .build()
-            .getAsJSONObject(object :  JSONObjectRequestListener {
-
-                override fun onResponse(response: JSONObject) {
-                    Toast.makeText(applicationContext, " Producto ingresado correctamente. \nID ingresado: ${response.getString("id")} ", Toast.LENGTH_LONG ).show()
-                }
-
-                override fun onError(anError: ANError) {
-                    Toast.makeText(applicationContext, "Error " + anError.errorDetail, Toast.LENGTH_LONG ).show()
-                }
-                
-            })
-
     }
 
 }
