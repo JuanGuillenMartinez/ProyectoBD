@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.example.proyectobd.clases.Producto
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() , View.OnClickListener {
@@ -16,6 +17,16 @@ class LoginActivity : AppCompatActivity() , View.OnClickListener {
         setContentView(R.layout.activity_login)
         btnRegistrar.setOnClickListener(this)
         btnIngresar.setOnClickListener(this)
+
+        val obj = Producto(1, true, "Hoy", "1234", "12345", "Producto de prueba",
+        10.0f, 3, 1, 1, 1, 1)
+
+        obj.mostrar(this)
+
+        obj.esComprado( "Se compro")
+        obj.esModificado("Juan","Se modifico")
+        obj.mostrar(this)
+
     }
 
     override fun onClick(v: View) {

@@ -48,7 +48,7 @@ class FormActivity : AppCompatActivity(), View.OnClickListener {
         val producto: Productos = objeto?.getSerializable("obj") as Productos
         txt_id.setText(producto.idProducto.toString())
 
-        AndroidNetworking.initialize(getApplicationContext());
+        AndroidNetworking.initialize(getApplicationContext())
         btn_agregar.setOnClickListener(this)
         //insertarDatos()
         actualizarDatos()

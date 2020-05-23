@@ -29,7 +29,7 @@
                 app:srcCompat="@drawable/producto" />
 
             <TextView
-                android:id="@+id/titulo_nombre"
+                android:id="@+id/titulo_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
@@ -46,12 +46,88 @@
                 android:textStyle="normal" />
 
             <EditText
-                android:id="@+id/campo_nombre"
+                android:id="@+id/campo_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="36dp"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/titulo_codigo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Codigo del producto" />
+
+            <EditText
+                android:id="@+id/campo_codigo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/titulo_codigobarra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Codigo de barras" />
+
+            <EditText
+                android:id="@+id/campo_codigobarra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/titulo_estado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="estado" />
+
+            <Switch
+                android:id="@+id/switch_estatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/titulo_marca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Marca" />
+
+            <EditText
+                android:id="@+id/campo_marca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/titulo_unidadmedida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Unidad de medida" />
+
+            <EditText
+                android:id="@+id/campo_medida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/titulo subcategoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SubCategoria" />
+
+            <EditText
+                android:id="@+id/campo_subcategoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName" />
 

@@ -20,7 +20,7 @@ class InformationActivity : AppCompatActivity() {
     fun mostrarProducto(producto: Productos) {
 
         campo_id.text = producto.idProducto.toString()
-        campo_nombre.text = producto.nombreProducto.toString()
+        campo_descripcion.text = producto.nombreProducto.toString()
         campo_precio.text = producto.precioProducto.toString()
         campo_existencia.text = producto.existencia.toString()
 
