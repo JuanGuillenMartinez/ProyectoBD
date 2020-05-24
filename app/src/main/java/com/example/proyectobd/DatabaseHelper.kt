@@ -102,32 +102,4 @@ class DatabaseHelper (context: Context) :
             return resultado
         }
 
-    /*fun obtenerUsuario(correo: String, pass: String) : Usuario {
-
-        val db = this.writableDatabase
-        val array = arrayOf(correo, pass)
-        val resultado = db.rawQuery("SELECT * FROM usuarios WHERE correo_electronico = ? AND contraseña = ? ", array)
-        val id = resultado.getString(0)
-        val correo = resultado.getString(1)
-        val contraseña = resultado.getString(2)
-
-        val usuario = Usuario(correo, contraseña)
-
-        return usuario
-    }
-
-    fun registrarUsuario(correo: String, pass: String) : Boolean {
-
-        val db = this.writableDatabase
-        if(db.isOpen) {
-            val cv = ContentValues()
-            cv.put("correo_electronico", correo)
-            cv.put("contraseña", pass)
-            db.insert("usuarios", null, cv)
-            return true
-        } else {
-            return false
-        }
-    }*/
-
 }

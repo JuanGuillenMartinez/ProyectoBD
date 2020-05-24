@@ -2,17 +2,19 @@ package com.example.proyectobd.clases
 
 import android.content.Context
 import android.widget.Toast
+import java.io.Serializable
 import java.time.LocalDateTime
 
-class Producto (var estado: Boolean, var codigo: String, var codigoBarra: String,
+class Producto (var estado: String, var codigo: String, var codigoBarra: String,
                 var descripcion: String, var precio: Float, var existencia: Int, var marca: Int, var subcategoria: Int,
-                var unidadMedida: Int, var usuarioCrea: Int) {
+                var unidadMedida: Int, var usuarioCrea: Int) : Serializable {
 
     var ultimaCompra: String
     var usuarioModifica: String
     var fechaModificacion: String
     var fechaCreacion: String
     var id_producto: Int
+    var imagen: Int
 
     init {
         this.ultimaCompra = "Indefinido"
@@ -20,6 +22,7 @@ class Producto (var estado: Boolean, var codigo: String, var codigoBarra: String
         this.fechaModificacion = "Indefinido"
         this.fechaCreacion = "Indefinido"
         this.id_producto = 1
+        this.imagen = 1
     }
 
     fun idSiguiente() {
@@ -40,7 +43,9 @@ class Producto (var estado: Boolean, var codigo: String, var codigoBarra: String
     }
 
     fun mostrar(context: Context) {
-        val texto = "$id_producto $estado $fechaCreacion $codigo $codigoBarra $descripcion $precio $existencia $marca $subcategoria $unidadMedida $usuarioCrea $usuarioModifica $ultimaCompra $fechaModificacion"
+        val texto = "$id_producto $estado $fechaCreacion $codigo $codigoBarra $descripcion " +
+                    "$precio $existencia $marca $subcategoria $unidadMedida $usuarioCrea " +
+                    "$usuarioModifica $ultimaCompra $fechaModificacion"
         Toast.makeText(context, texto, Toast.LENGTH_LONG).show()
         println(texto)
     }

@@ -18,15 +18,6 @@ class LoginActivity : AppCompatActivity() , View.OnClickListener {
         btnRegistrar.setOnClickListener(this)
         btnIngresar.setOnClickListener(this)
 
-        val obj = Producto(1, true, "Hoy", "1234", "12345", "Producto de prueba",
-        10.0f, 3, 1, 1, 1, 1)
-
-        obj.mostrar(this)
-
-        obj.esComprado( "Se compro")
-        obj.esModificado("Juan","Se modifico")
-        obj.mostrar(this)
-
     }
 
     override fun onClick(v: View) {

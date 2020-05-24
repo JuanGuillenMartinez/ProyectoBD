@@ -57,18 +57,6 @@ class FormActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    /*fun insertarDatos() {
-        btn_agregar.setOnClickListener {
-            try {
-                dbHelper.agregar(txt_nombre.text.toString(), txt_precio.text.toString(), txt_existencia.text.toString())
-                limpiarTexto()
-            } catch (e: Exception) {
-                e.printStackTrace()
-                mostrarToast(e.message.toString())
-            }
-        }
-    }*/
-
     fun actualizarDatos() {
         btn_actualizar.setOnClickListener {
             try {
