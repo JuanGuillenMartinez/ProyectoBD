@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_insert.*
 class InsertActivity : AppCompatActivity() , View.OnClickListener {
 
     internal var db = DatabaseHelper(this)
-    var estado: Boolean = false
+    var estado: String = "false"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,13 +21,14 @@ class InsertActivity : AppCompatActivity() , View.OnClickListener {
         btn_agregar.setOnClickListener(this)
         AndroidNetworking.initialize(getApplicationContext())
         switch_estatus.setOnCheckedChangeListener { buttonView, isChecked ->
-            if(isChecked) {
-                estado = true
+            if(switch_estatus.isChecked) {
+                switch_estatus.text = "Activo"
+                estado = "true"
+            } else {
+                switch_estatus.text = "Inactivo"
+                estado = "false"
             }
         }
-
-
-
     }
 
     override fun onClick(v: View) {
@@ -49,9 +50,10 @@ class InsertActivity : AppCompatActivity() , View.OnClickListener {
         val marca = campo_marca.text.toString().toInt()
         val unidadMedida = campo_medida.text.toString().toInt()
         val subcategoria = campo_subcategoria.text.toString().toInt()
-        val precio = campo_precio.toString().toFloat()
+        val precio = campo_precio.text.toString().toFloat()
         val existencia = campo_existencia.text.toString().toInt()
         val usuarioCrea = 1
+
         val producto = Producto(estado, codigo, codigoBarras, descripcion, precio, existencia, marca, subcategoria, unidadMedida, usuarioCrea)
 
         return producto

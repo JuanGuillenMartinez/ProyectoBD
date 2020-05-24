@@ -39,7 +39,7 @@
                 android:fontFamily="@font/source_code_pro_semibold"
                 android:paddingStart="15dp"
                 android:paddingTop="2dp"
-                android:paddingEnd="15dp"
+                android:paddingEnd="2dp"
                 android:text="@string/texto_nombre"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
@@ -53,96 +53,201 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="36dp"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp" />
 
             <TextView
                 android:id="@+id/titulo_codigo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Codigo del producto" />
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/button_rounded"
+                android:fontFamily="@font/source_code_pro_semibold"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp"
+                android:text="Codigo del producto"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/campo_codigo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp" />
 
             <TextView
                 android:id="@+id/titulo_codigobarra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Codigo de barras" />
-
-            <EditText
-                android:id="@+id/campo_codigobarra"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/titulo_estado"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="estado" />
-
-            <Switch
-                android:id="@+id/switch_estatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/titulo_marca"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Marca" />
-
-            <EditText
-                android:id="@+id/campo_marca"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/titulo_unidadmedida"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Unidad de medida" />
-
-            <EditText
-                android:id="@+id/campo_medida"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/titulo subcategoria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="SubCategoria" />
-
-            <EditText
-                android:id="@+id/campo_subcategoria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/titulo_precio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="36dp"
                 android:background="@drawable/button_rounded"
                 android:fontFamily="@font/source_code_pro_semibold"
                 android:paddingStart="15dp"
                 android:paddingTop="2dp"
-                android:paddingEnd="15dp"
+                android:paddingEnd="2dp"
+                android:text="Codigo de barras"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/campo_codigobarra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp" />
+
+            <TextView
+                android:id="@+id/titulo_estado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/button_rounded"
+                android:fontFamily="@font/source_code_pro_semibold"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp"
+                android:text="Estado"
+                android:textSize="20sp" />
+
+            <Switch
+                android:id="@+id/switch_estatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp" />
+
+            <TextView
+                android:id="@+id/titulo_marca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/button_rounded"
+                android:fontFamily="@font/source_code_pro_semibold"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp"
+                android:text="Marca"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/campo_marca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp" />
+
+            <TextView
+                android:id="@+id/titulo_unidadmedida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/button_rounded"
+                android:fontFamily="@font/source_code_pro_semibold"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp"
+                android:text="Unidad de medida"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/campo_medida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp" />
+
+            <TextView
+                android:id="@+id/titulo_subcategoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:fontFamily="@font/source_code_pro_semibold"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp"
+                android:text="SubCategoria"
+                android:textSize="20sp"
+                android:background="@drawable/button_rounded" />
+
+            <EditText
+                android:id="@+id/campo_subcategoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp" />
+
+            <TextView
+                android:id="@+id/titulo_precio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/button_rounded"
+                android:fontFamily="@font/source_code_pro_semibold"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp"
                 android:text="@string/texto_precio"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
@@ -156,7 +261,10 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="36dp"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp" />
 
             <TextView
                 android:id="@+id/titulo_existencia"
@@ -169,7 +277,7 @@
                 android:fontFamily="@font/source_code_pro_semibold"
                 android:paddingStart="15dp"
                 android:paddingTop="2dp"
-                android:paddingEnd="15dp"
+                android:paddingEnd="2dp"
                 android:text="@string/texto_existencia"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
@@ -183,7 +291,10 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="36dp"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp" />
 
             <Button
                 android:id="@+id/btn_agregar"

@@ -7,18 +7,27 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.common.Priority
+import com.androidnetworking.error.ANError
+import com.androidnetworking.interfaces.JSONObjectRequestListener
+import com.example.proyectobd.activities.Adaptador
+import com.example.proyectobd.clases.Producto
+import com.example.proyectobd.webservice.Consultas
 import kotlinx.android.synthetic.main.activity_recycler.*
+import org.json.JSONArray
+import org.json.JSONObject
 
 class RecyclerActivity : AppCompatActivity() {
+
+    val contexto = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
-
         val objeto = intent.extras
         val usuario: Usuario = objeto?.getSerializable("obj") as Usuario
-
-
+        AndroidNetworking.initialize(applicationContext)
         mostrarRecycler()
 
     }
@@ -53,45 +62,58 @@ class RecyclerActivity : AppCompatActivity() {
 
     fun mostrarRecycler() {
 
-        recyclerview_productos.layoutManager=LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        val productos=importarProductos()
-        val adaptador = Adaptador(productos)
-        recyclerview_productos.adapter=adaptador
+        importarProductos()
 
     }
 
-    fun importarProductos() : ArrayList<Productos> {
+    fun importarProductos() {
 
-        var lista = ArrayList<Productos>()
-        var producto: Productos?
-        val db: DatabaseHelper = DatabaseHelper(this)
-        var id: Int
-        var nombre: String
-        var precio: Float
-        var existencia: Int
-        val resultado = db.obtenerDatos
+        val productos = ArrayList<Producto>()
 
-        if (resultado.count == 0) {
+        AndroidNetworking.get("https://mysterious-woodland-17155.herokuapp.com/api_rest/SELECT_ALL_producto_GET.php")
+            .setPriority(Priority.MEDIUM)
+            .build()
+            .getAsJSONObject(object : JSONObjectRequestListener {
 
-            Toast.makeText(this, "No hay registros en la Base de datos ", Toast.LENGTH_LONG)
+                override fun onResponse(response: JSONObject) {
+                    val arrayProductos: JSONArray = response.getJSONArray("data")
+                    for (i in 0 until arrayProductos.length()) {
+                        val objeto = arrayProductos.getJSONObject(i)
+                        val id= objeto.getString("id").toInt()
+                        val estado = objeto.getString("estado")
+                        val fechaCreacion= objeto.getString("fechaCreacion")
+                        val fechaModificacion= objeto.getString("fechaModificacion")
+                        val usuarioModifica = objeto.getString("usuarioModifica")
+                        val codigo = objeto.getString("codigo")
+                        val codigoBarra = objeto.getString("codigo_barra")
+                        val descripcion = objeto.getString("descripcion")
+                        val precio = objeto.getString("precio").toFloat()
+                        val existencia = objeto.getString("existencia").toInt()
+                        val ultimaCompra = objeto.getString("ultima_compra")
+                        val marca = objeto.getString("marca_id").toInt()
+                        val subcategoria = objeto.getString("subcategoria_id").toInt()
+                        val unidadMedida = objeto.getString("unidad_medida_id").toInt()
+                        val usuarioCrea = objeto.getString("usuarioCrea_id").toInt()
+                        var producto: Producto = Producto(estado, codigo, codigoBarra, descripcion, precio, existencia, marca, subcategoria, unidadMedida, usuarioCrea)
+                        producto.ultimaCompra = ultimaCompra
+                        producto.usuarioModifica = usuarioModifica
+                        producto.fechaCreacion = fechaCreacion
+                        producto.id_producto = id
+                        producto.fechaModificacion = fechaModificacion
+                        productos.add(producto)
 
-        } else {
+                        recyclerview_productos.layoutManager = LinearLayoutManager(contexto, LinearLayoutManager.VERTICAL, false)
+                        val adaptador = Adaptador(productos)
+                        recyclerview_productos.adapter = adaptador
 
-            while(resultado.moveToNext()) {
+                    }
+                }
 
-                id=resultado.getString(0).toInt()
-                nombre=resultado.getString(1)
-                precio=resultado.getString(2).toFloat()
-                existencia=resultado.getString(3).toInt()
-                producto = Productos(id, nombre, precio, existencia, R.drawable.producto)
-                lista.add(producto)
-                producto = null
+                override fun onError(anError: ANError) {
+                    Toast.makeText(contexto, "Error " + anError.errorDetail + anError.errorBody, Toast.LENGTH_LONG ).show()
+                }
 
-            }
-
-        }
-
-        return lista
+            })
 
     }
 

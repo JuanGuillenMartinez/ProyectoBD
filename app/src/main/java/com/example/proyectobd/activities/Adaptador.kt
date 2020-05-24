@@ -1,4 +1,4 @@
-package com.example.proyectobd
+package com.example.proyectobd.activities
 
 import android.content.Context
 import android.content.Intent
@@ -12,29 +12,36 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.proyectobd.FormActivity
+import com.example.proyectobd.InformationActivity
+//import com.example.proyectobd.Productos
+import com.example.proyectobd.R
+import com.example.proyectobd.clases.Producto
 
-class Adaptador(var lista: ArrayList<Productos>) : RecyclerView.Adapter<Adaptador.ViewHolder>() {
+class Adaptador(var lista: ArrayList<Producto>) : RecyclerView.Adapter<Adaptador.ViewHolder>() {
 
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
         val context: Context = itemView.context
-        var producto: Productos? = null
+        var producto: Producto? = null
 
-        fun bindItems (datos: Productos) {
+        fun bindItems (datos: Producto) {
 
             producto = datos
-            val nombre:TextView=itemView.findViewById(R.id.textv_titulo)
+
+            val descripcion:TextView=itemView.findViewById(R.id.textv_titulo)
             val precio:TextView=itemView.findViewById(R.id.textv_precio)
             val foto:ImageView=itemView.findViewById(R.id.thumbnail)
             val opciones:ImageView=itemView.findViewById(R.id.mn_opciones)
 
-            nombre.text=datos.nombreProducto
-            precio.text=datos.precioProducto.toString()
-            Glide.with(itemView.context).load(datos.thumbnail).into(foto)
+            descripcion.text=datos.descripcion
+            precio.text=datos.precio.toString()
+            datos.imagen = R.drawable.producto
+            Glide.with(itemView.context).load(datos.imagen).into(foto)
 
             foto.setOnClickListener {
-                Toast.makeText(itemView.context, "Producto: ${datos.nombreProducto} ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(itemView.context, "Producto: ${datos.descripcion} ", Toast.LENGTH_SHORT).show()
             }
 
             opciones.setOnClickListener {
@@ -81,7 +88,7 @@ class Adaptador(var lista: ArrayList<Productos>) : RecyclerView.Adapter<Adaptado
         return lista.size
     }
 
-    override fun onBindViewHolder(holder: Adaptador.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItems(lista[position])
     }
 }
