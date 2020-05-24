@@ -1,11 +1,12 @@
-package com.example.proyectobd
+package com.example.proyectobd.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Switch
 import android.widget.Toast
 import com.androidnetworking.AndroidNetworking
+import com.example.proyectobd.R
+import com.example.proyectobd.clases.DatabaseHelper
 import com.example.proyectobd.clases.Producto
 import com.example.proyectobd.webservice.Consultas
 import kotlinx.android.synthetic.main.activity_insert.*

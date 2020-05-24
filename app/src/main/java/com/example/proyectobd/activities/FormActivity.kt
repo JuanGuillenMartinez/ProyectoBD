@@ -1,18 +1,16 @@
-package com.example.proyectobd
+package com.example.proyectobd.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.androidnetworking.AndroidNetworking
-import com.androidnetworking.common.Priority
-import com.androidnetworking.error.ANError
-import com.androidnetworking.interfaces.JSONObjectRequestListener
+import com.example.proyectobd.Productos
+import com.example.proyectobd.R
+import com.example.proyectobd.clases.DatabaseHelper
 import com.example.proyectobd.webservice.Consultas
 import kotlinx.android.synthetic.main.activity_main.*
-import org.json.JSONObject
 import java.lang.Exception
 
 class FormActivity : AppCompatActivity(), View.OnClickListener {
@@ -112,7 +110,7 @@ class FormActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when(v.id) {
-            R.id.btn_agregar->{
+            R.id.btn_agregar ->{
 
                 val conexion = Consultas(this)
                 val nombre = txt_nombre.text.toString()

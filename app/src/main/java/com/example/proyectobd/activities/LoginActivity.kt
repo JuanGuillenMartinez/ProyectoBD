@@ -1,11 +1,13 @@
-package com.example.proyectobd
+package com.example.proyectobd.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.example.proyectobd.clases.Producto
+import com.example.proyectobd.R
+import com.example.proyectobd.clases.Usuario
+import com.example.proyectobd.clases.DatabaseHelper
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() , View.OnClickListener {

@@ -1,7 +1,9 @@
-package com.example.proyectobd
+package com.example.proyectobd.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.proyectobd.Productos
+import com.example.proyectobd.R
 import kotlinx.android.synthetic.main.activity_information.*
 
 class InformationActivity : AppCompatActivity() {

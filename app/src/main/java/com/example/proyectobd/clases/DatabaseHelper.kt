@@ -1,14 +1,14 @@
-package com.example.proyectobd
+package com.example.proyectobd.clases
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.widget.Toast
 
 class DatabaseHelper (context: Context) :
-    SQLiteOpenHelper( context, nomDB, null, 1) {
+    SQLiteOpenHelper( context,
+        nomDB, null, 1) {
 
     lateinit var usuario: Usuario
 

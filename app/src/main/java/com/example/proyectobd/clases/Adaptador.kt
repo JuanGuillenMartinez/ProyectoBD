@@ -1,4 +1,4 @@
-package com.example.proyectobd.activities
+package com.example.proyectobd.clases
 
 import android.content.Context
 import android.content.Intent
@@ -12,11 +12,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.proyectobd.FormActivity
-import com.example.proyectobd.InformationActivity
+import com.example.proyectobd.activities.FormActivity
+import com.example.proyectobd.activities.InformationActivity
 //import com.example.proyectobd.Productos
 import com.example.proyectobd.R
-import com.example.proyectobd.clases.Producto
 
 class Adaptador(var lista: ArrayList<Producto>) : RecyclerView.Adapter<Adaptador.ViewHolder>() {
 

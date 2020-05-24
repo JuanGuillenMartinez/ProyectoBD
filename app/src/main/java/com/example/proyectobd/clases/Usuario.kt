@@ -1,4 +1,4 @@
-package com.example.proyectobd
+package com.example.proyectobd.clases
 
 import java.io.Serializable
 

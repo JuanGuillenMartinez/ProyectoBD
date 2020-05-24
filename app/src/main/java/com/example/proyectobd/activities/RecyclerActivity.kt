@@ -1,4 +1,4 @@
-package com.example.proyectobd
+package com.example.proyectobd.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -11,9 +11,10 @@ import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
-import com.example.proyectobd.activities.Adaptador
+import com.example.proyectobd.R
+import com.example.proyectobd.clases.Usuario
+import com.example.proyectobd.clases.Adaptador
 import com.example.proyectobd.clases.Producto
-import com.example.proyectobd.webservice.Consultas
 import kotlinx.android.synthetic.main.activity_recycler.*
 import org.json.JSONArray
 import org.json.JSONObject
@@ -103,7 +104,8 @@ class RecyclerActivity : AppCompatActivity() {
                         productos.add(producto)
 
                         recyclerview_productos.layoutManager = LinearLayoutManager(contexto, LinearLayoutManager.VERTICAL, false)
-                        val adaptador = Adaptador(productos)
+                        val adaptador =
+                            Adaptador(productos)
                         recyclerview_productos.adapter = adaptador
 
                     }

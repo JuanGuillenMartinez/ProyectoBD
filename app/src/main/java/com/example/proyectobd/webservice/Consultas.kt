@@ -1,15 +1,12 @@
 package com.example.proyectobd.webservice
 
 import android.content.Context
-import android.database.Cursor
 import android.widget.Toast
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
-import com.example.proyectobd.activities.Adaptador
 import com.example.proyectobd.clases.Producto
-import kotlinx.android.synthetic.main.activity_recycler.*
 import org.json.JSONArray
 import org.json.JSONObject
 
