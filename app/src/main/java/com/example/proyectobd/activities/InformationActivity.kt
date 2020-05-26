@@ -27,7 +27,6 @@ class InformationActivity : AppCompatActivity() {
         campo_existencia.text = producto.existencia.toString()
         campo_codigo.text = producto.codigo
         campo_codigobarra.text = producto.codigoBarra
-        campo_estado.text = producto.estado
         campo_fechacreacion.text = producto.fechaCreacion
         campo_fechamodificacion.text = producto.fechaModificacion
         campo_usuariomodifica.text = producto.usuarioModifica

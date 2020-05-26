@@ -16,4 +16,5 @@
     <string name="string_iniciar_sesion">Iniciar Sesion</string>
     <string name="string_registro">Registro de Usuario</string>
     <string name="string_load">Cargar imagen</string>
+    <string name="texto_descripcion">Descripción</string>
 </resources>
