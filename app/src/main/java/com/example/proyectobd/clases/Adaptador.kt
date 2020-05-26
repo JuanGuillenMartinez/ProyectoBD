@@ -16,6 +16,7 @@ import com.example.proyectobd.activities.FormActivity
 import com.example.proyectobd.activities.InformationActivity
 //import com.example.proyectobd.Productos
 import com.example.proyectobd.R
+import com.example.proyectobd.activities.SimpleScannerActivity
 
 class Adaptador(var lista: ArrayList<Producto>) : RecyclerView.Adapter<Adaptador.ViewHolder>() {
 
@@ -58,10 +59,7 @@ class Adaptador(var lista: ArrayList<Producto>) : RecyclerView.Adapter<Adaptador
                         }
 
                         R.id.mnitem_producto -> {
-                            val intent = Intent(context, FormActivity::class.java)
-                            val bundle = Bundle()
-                            bundle.putSerializable("obj", producto)
-                            intent.putExtras(bundle)
+                            val intent = Intent(context, SimpleScannerActivity::class.java)
                             context.startActivity(intent)
                             true
                         }

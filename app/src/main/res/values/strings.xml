@@ -14,15 +14,12 @@
     <string name="texto_registrar">Registrar</string>
     <string name="string_nombre_usuario">Nombre de usuario</string>
     <string name="string_iniciar_sesion">Iniciar Sesion</string>
-    <string name="string_registro">Registro de Usuario</string>
-    <string name="string_load">Cargar imagen</string>
     <string name="texto_descripcion">Descripción</string>
     <string name="texto_limpiar">"Limpiar "</string>
     <string name="texto_codigo">Código del producto</string>
     <string name="texto_codigo_barras">Código de barras</string>
     <string name="texto_estado_producto">Estado</string>
     <string name="texto_marca_comercial">Marca comercial</string>
-    <string name="texto_departamento">Departamento</string>
     <string name="texto_subdepartamento">Linea o subdepartamento</string>
     <string name="texto_unidadmedida">Presentacion (Kg, Piezas, etc)</string>
     <string name="texto_fechacreacion">Fecha de seguimiento</string>
@@ -30,17 +27,5 @@
     <string name="texto_ultimamodificacion">"Fecha de modificación "</string>
     <string name="texto_usuariomodifica">Modificado por</string>
     <string name="texto_ultimacompra">Última compra</string>
-    <string name="title_activity_main_productos">MainProductosActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-
-    <string name="home_second">Home Second</string>
 </resources>
