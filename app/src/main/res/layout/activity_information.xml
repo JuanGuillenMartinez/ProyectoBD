@@ -173,7 +173,7 @@
                 android:paddingTop="4dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="4dp"
-                android:text="Codigo del producto"
+                android:text="@string/texto_codigo"
                 android:textSize="18sp" />
 
             <TextView
@@ -205,7 +205,7 @@
                 android:paddingTop="4dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="4dp"
-                android:text="Codigo de barras"
+                android:text="@string/texto_codigo_barras"
                 android:textSize="18sp" />
 
             <TextView
@@ -238,7 +238,7 @@
                 android:paddingTop="4dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="4dp"
-                android:text="Marca"
+                android:text="@string/texto_marca_comercial"
                 android:textSize="18sp" />
 
             <TextView
@@ -270,7 +270,7 @@
                 android:paddingTop="4dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="4dp"
-                android:text="SubCategoria"
+                android:text="@string/texto_subdepartamento"
                 android:textSize="18sp" />
 
             <TextView
@@ -302,7 +302,7 @@
                 android:paddingTop="4dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="4dp"
-                android:text="Unidad de medida"
+                android:text="@string/texto_unidadmedida"
                 android:textSize="18sp" />
 
             <TextView
@@ -334,7 +334,7 @@
                 android:paddingTop="4dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="4dp"
-                android:text="Fecha de seguimiento"
+                android:text="@string/texto_fechacreacion"
                 android:textSize="18sp" />
 
             <TextView
@@ -364,7 +364,7 @@
                 android:paddingTop="4dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="4dp"
-                android:text="Ingresado por"
+                android:text="@string/texto_usuariocrea"
                 android:textSize="18sp" />
 
             <TextView
@@ -394,7 +394,7 @@
                 android:paddingTop="4dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="4dp"
-                android:text="Ultima modificacion"
+                android:text="@string/texto_ultimamodificacion"
                 android:textSize="18sp" />
 
             <TextView
@@ -424,7 +424,7 @@
                 android:paddingTop="4dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="4dp"
-                android:text="Modificado por"
+                android:text="@string/texto_usuariomodifica"
                 android:textSize="18sp" />
 
             <TextView
@@ -454,7 +454,7 @@
                 android:paddingTop="4dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="4dp"
-                android:text="Ultima compra"
+                android:text="@string/texto_ultimacompra"
                 android:textSize="18sp" />
 
             <TextView
