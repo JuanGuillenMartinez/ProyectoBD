@@ -33,7 +33,7 @@ class Adaptador(var lista: ArrayList<Producto>) : RecyclerView.Adapter<Adaptador
             val opciones:ImageView = itemView.findViewById(R.id.mn_opciones)
 
             descripcion.text = producto.descripcion
-            precio.text = producto.id_producto.toString()
+            precio.text = producto.precio.toString()
             producto.imagen = R.drawable.producto
             Glide.with(itemView.context).load(producto.imagen).into(foto)
 
