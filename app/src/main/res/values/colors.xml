@@ -8,10 +8,11 @@
     <color name="coloPrimaryButton">#B2D8ED</color>
     <color name="borderColorPrimary">#6CA0D1</color>
     <color name="colorCancelButton">#66D53737</color>
-    <color name="colorUpdateButton">#6655D63D</color>
-    <color name="borderUpdateButton">#36DC19</color>
+    <color name="colorUpdateButton">#16A085</color>
+    <color name="borderUpdateButton">#117A65</color>
     <color name="backgroundColor">#336200EA</color>
     <color name="firstCategory">#AED6F1</color>
     <color name="secondCategory">#A3E4D7</color>
     <color name="thirdCategory">#ABEBC6</color>
+    <color name="colorOptionalButton">#EAEDED</color>
 </resources>
