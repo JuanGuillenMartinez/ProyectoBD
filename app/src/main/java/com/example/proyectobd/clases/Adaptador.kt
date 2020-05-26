@@ -59,14 +59,14 @@ class Adaptador(var lista: ArrayList<Producto>) : RecyclerView.Adapter<Adaptador
                         }
 
                         R.id.mnitem_producto -> {
-                            val intent = Intent(context, SimpleScannerActivity::class.java)
-                            context.startActivity(intent)
+
                             true
                         }
 
                         else -> false
 
                     }
+
                 }
                 popMenu.inflate(R.menu.mn_opciones)
                 popMenu.show()

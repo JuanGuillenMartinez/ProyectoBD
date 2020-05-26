@@ -27,5 +27,6 @@
     <string name="texto_ultimamodificacion">"Fecha de modificación "</string>
     <string name="texto_usuariomodifica">Modificado por</string>
     <string name="texto_ultimacompra">Última compra</string>
+    <string name="texto_especificar">Especificar</string>
 
 </resources>

@@ -1,5 +1,7 @@
 package com.example.proyectobd.activities
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -20,6 +22,7 @@ class InsertActivity : AppCompatActivity() , View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_insert)
         btn_agregar.setOnClickListener(this)
+        imageButton_barras.setOnClickListener(this)
         AndroidNetworking.initialize(getApplicationContext())
         switch_estatus.setOnCheckedChangeListener { buttonView, isChecked ->
             if(switch_estatus.isChecked) {
@@ -38,6 +41,22 @@ class InsertActivity : AppCompatActivity() , View.OnClickListener {
                 val conexion = Consultas(this)
                 val producto = crearProducto()
                 conexion.registrarProducto(producto)
+            }
+            R.id.imageButton_barras -> {
+                val intent = Intent(this, SimpleScannerActivity::class.java)
+                startActivityForResult(intent, 1)
+
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK) {
+                val result = data?.getStringExtra("codigo")
+                campo_codigobarra.setText(result)
             }
         }
     }
