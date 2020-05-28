@@ -111,14 +111,6 @@ class FormActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         when(v.id) {
             R.id.btn_agregar ->{
-
-                val conexion = Consultas(this)
-                val nombre = txt_nombre.text.toString()
-                val precio = txt_precio.text.toString()
-                val categoria = txt_existencia.text.toString()
-
-                conexion.agregarProducto(nombre, precio, categoria)
-
             }
         }
     }
