@@ -10,6 +10,7 @@ import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.example.proyectobd.clases.Adaptador
 import com.example.proyectobd.clases.Producto
+import com.example.proyectobd.clases.Usuario
 import kotlinx.android.synthetic.main.activity_recycler.*
 import org.json.JSONArray
 import org.json.JSONObject
@@ -58,7 +59,7 @@ class Consultas (contexto: Context) {
     fun eliminarProducto(producto: Producto) {
     }
 
-    fun obtenerProductos(recycler: RecyclerView) {
+    fun obtenerProductos(recycler: RecyclerView, usuario: Usuario) {
 
         val productos = ArrayList<Producto>()
 
@@ -96,7 +97,7 @@ class Consultas (contexto: Context) {
                         productos.add(producto)
 
                         recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-                        val adaptador = Adaptador(productos)
+                        val adaptador = Adaptador(productos, usuario)
                         recycler.adapter = adaptador
 
                     }

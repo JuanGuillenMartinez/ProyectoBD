@@ -6,7 +6,8 @@
     <color name="coloPrimaryButton">#B2D8ED</color>
     <color name="borderColorPrimary">#6CA0D1</color>
     <color name="colorCancelButton">#66D53737</color>
-    <color name="colorUpdateButton">#16A085</color>
+    <color name="colorUpdateButton">#F9E79F</color>
+    <color name="colorInsertButton">#16A085</color>
     <color name="borderUpdateButton">#117A65</color>
     <color name="firstCategory">#7FB3D5</color>
     <color name="secondCategory">#A3E4D7</color>

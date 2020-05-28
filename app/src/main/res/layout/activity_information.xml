@@ -44,7 +44,7 @@
                 android:text="@string/texto_id"
                 android:textSize="18sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/campo_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,10 +52,9 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="36dp"
                 android:fontFamily="sans-serif"
+                android:inputType="text"
                 android:paddingLeft="15dp"
-                android:paddingTop="4dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="4dp"
                 android:textSize="14sp" />
 
             <TextView
@@ -76,7 +75,7 @@
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
-            <TextView
+            <EditText
                 android:id="@+id/campo_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,11 +84,9 @@
                 android:layout_marginRight="36dp"
                 android:ems="10"
                 android:fontFamily="sans-serif"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:paddingLeft="15dp"
-                android:paddingTop="4dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="4dp"
                 android:textSize="14sp" />
 
             <TextView
@@ -110,7 +107,7 @@
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
-            <TextView
+            <EditText
                 android:id="@+id/campo_precio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -119,11 +116,9 @@
                 android:layout_marginRight="36dp"
                 android:ems="10"
                 android:fontFamily="sans-serif"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:paddingLeft="15dp"
-                android:paddingTop="4dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="4dp"
                 android:textSize="14sp" />
 
             <TextView
@@ -144,7 +139,7 @@
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
-            <TextView
+            <EditText
                 android:id="@+id/campo_existencia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -153,11 +148,9 @@
                 android:layout_marginRight="36dp"
                 android:ems="10"
                 android:fontFamily="sans-serif"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:paddingLeft="15dp"
-                android:paddingTop="4dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="4dp"
                 android:textSize="14sp" />
 
             <TextView
@@ -176,7 +169,7 @@
                 android:text="@string/texto_codigo"
                 android:textSize="18sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/campo_codigo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -185,11 +178,9 @@
                 android:layout_marginRight="36dp"
                 android:ems="10"
                 android:fontFamily="sans-serif"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:paddingLeft="15dp"
-                android:paddingTop="4dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="4dp"
                 android:textSize="14sp" />
 
             <TextView
@@ -208,7 +199,7 @@
                 android:text="@string/texto_codigo_barras"
                 android:textSize="18sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/campo_codigobarra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -217,11 +208,9 @@
                 android:layout_marginRight="36dp"
                 android:ems="10"
                 android:fontFamily="sans-serif"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:paddingLeft="15dp"
-                android:paddingTop="4dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="4dp"
                 android:textSize="14sp" />
 
 
@@ -241,7 +230,7 @@
                 android:text="@string/texto_marca_comercial"
                 android:textSize="18sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/campo_marca"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -250,11 +239,9 @@
                 android:layout_marginRight="36dp"
                 android:ems="10"
                 android:fontFamily="sans-serif"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:paddingLeft="15dp"
-                android:paddingTop="4dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="4dp"
                 android:textSize="14sp" />
 
             <TextView
@@ -273,7 +260,7 @@
                 android:text="@string/texto_subdepartamento"
                 android:textSize="18sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/campo_subcategoria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -282,11 +269,9 @@
                 android:layout_marginRight="36dp"
                 android:ems="10"
                 android:fontFamily="sans-serif"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:paddingLeft="15dp"
-                android:paddingTop="4dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="4dp"
                 android:textSize="14sp" />
 
             <TextView
@@ -305,7 +290,7 @@
                 android:text="@string/texto_unidadmedida"
                 android:textSize="18sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/campo_medida"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -314,11 +299,9 @@
                 android:layout_marginRight="36dp"
                 android:ems="10"
                 android:fontFamily="sans-serif"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:paddingLeft="15dp"
-                android:paddingTop="4dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="4dp"
                 android:textSize="14sp" />
 
             <TextView
@@ -337,7 +320,7 @@
                 android:text="@string/texto_fechacreacion"
                 android:textSize="18sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/campo_fechacreacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -345,10 +328,9 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="36dp"
                 android:fontFamily="sans-serif"
+                android:inputType="text"
                 android:paddingLeft="15dp"
-                android:paddingTop="4dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="4dp"
                 android:textSize="14sp" />
 
             <TextView
@@ -367,7 +349,7 @@
                 android:text="@string/texto_usuariocrea"
                 android:textSize="18sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/campo_usuariocrea"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -375,10 +357,9 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="36dp"
                 android:fontFamily="sans-serif"
+                android:inputType="text"
                 android:paddingLeft="15dp"
-                android:paddingTop="4dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="4dp"
                 android:textSize="14sp" />
 
             <TextView
@@ -397,7 +378,7 @@
                 android:text="@string/texto_ultimamodificacion"
                 android:textSize="18sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/campo_fechamodificacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -405,10 +386,9 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="36dp"
                 android:fontFamily="sans-serif"
+                android:inputType="text"
                 android:paddingLeft="15dp"
-                android:paddingTop="4dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="4dp"
                 android:textSize="14sp" />
 
             <TextView
@@ -427,7 +407,7 @@
                 android:text="@string/texto_usuariomodifica"
                 android:textSize="18sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/campo_usuariomodifica"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -435,10 +415,9 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="36dp"
                 android:fontFamily="sans-serif"
+                android:inputType="text"
                 android:paddingLeft="15dp"
-                android:paddingTop="4dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="4dp"
                 android:textSize="14sp" />
 
             <TextView
@@ -457,7 +436,7 @@
                 android:text="@string/texto_ultimacompra"
                 android:textSize="18sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/campo_ultimacompra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -465,18 +444,44 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="36dp"
                 android:fontFamily="sans-serif"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="14sp" />
+
+            <Switch
+                android:id="@+id/switch_modificar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="36dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/button_change"
+                android:fontFamily="sans-serif-medium"
                 android:paddingLeft="15dp"
                 android:paddingTop="4dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="4dp"
-                android:textSize="14sp" />
+                android:text="@string/texto_modificar"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_actualizar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="36dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/button_update"
+                android:text="@string/texto_actualizar" />
 
             <Button
                 android:id="@+id/btn_eliminar"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="36dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginRight="36dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/button_cancel"

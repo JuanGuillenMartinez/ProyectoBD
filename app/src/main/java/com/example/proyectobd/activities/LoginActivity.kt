@@ -44,31 +44,4 @@ class LoginActivity : AppCompatActivity() , View.OnClickListener {
 
     }
 
-    /*fun onClick(v: View?) {
-        if(btnIngresar.isClickable) {
-
-            usuario = Usuario(text_correo.text.toString(), text_pass.text.toString())
-
-            if (validarUsuario(usuario)) {
-                val intent: Intent = Intent(this, RecyclerActivity::class.java)
-                val bundle = Bundle()
-                bundle.putSerializable("obj", usuario)
-                intent.putExtras(bundle)
-
-            } else {
-                Toast.makeText(this, "Error al ingresar", Toast.LENGTH_LONG)
-            }
-
-
-        }
-    }*/
-
-    /*fun validarUsuario(user: Usuario) : Boolean {
-
-        val db = DatabaseHelper(this)
-        val resultado = db.obtenerUsuario(user.correoElectronico, user.contraseña)
-        return true
-
-    }*/
-
 }

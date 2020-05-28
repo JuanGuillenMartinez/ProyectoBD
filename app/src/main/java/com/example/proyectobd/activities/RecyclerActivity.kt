@@ -23,12 +23,13 @@ import org.json.JSONObject
 class RecyclerActivity : AppCompatActivity() {
 
     val contexto = this
+    lateinit var usuario: Usuario
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
         val datos = intent.extras
-        val usuario: Usuario = datos?.getSerializable("obj") as Usuario
+        usuario = datos?.getSerializable("obj") as Usuario
         AndroidNetworking.initialize(applicationContext)
         mostrarRecycler()
 
@@ -60,7 +61,7 @@ class RecyclerActivity : AppCompatActivity() {
     fun mostrarRecycler() {
 
         val consulta = Consultas(this)
-        consulta.obtenerProductos(recyclerview_productos)
+        consulta.obtenerProductos(recyclerview_productos, usuario)
 
     }
 
