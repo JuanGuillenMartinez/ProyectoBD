@@ -4,10 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import com.example.proyectobd.R
 import com.example.proyectobd.clases.Usuario
 import com.example.proyectobd.clases.DatabaseHelper
+import com.example.proyectobd.webservice.ConsultaUsuario
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() , View.OnClickListener {
@@ -19,7 +21,8 @@ class LoginActivity : AppCompatActivity() , View.OnClickListener {
         setContentView(R.layout.activity_login)
         btnRegistrar.setOnClickListener(this)
         btnIngresar.setOnClickListener(this)
-
+        val edit = findViewById<EditText>(R.id.text_pass)
+        edit.setText("pbkdf2_sha256$180000\$LtX1pyRRz3RC\$PQySEomZX8jQVKXuE3pzTrme2YPp12n13JngCc0gpbI=")
     }
 
     override fun onClick(v: View) {
@@ -27,22 +30,10 @@ class LoginActivity : AppCompatActivity() , View.OnClickListener {
         when(v.id) {
             R.id.btnIngresar -> {
                 val db = DatabaseHelper(this)
-                val correo = text_correo.text.toString()
+                val correo = text_correo.text.toString().trim()
                 val pass = text_pass.text.toString()
-
-                if(db.validarUsuario(correo, pass)) {
-                    Toast.makeText(this, "Usuario validado", Toast.LENGTH_LONG).show()
-                    usuario = db.usuario
-                    val otrointent: Intent = Intent(this, RecyclerActivity::class.java)
-                    val bundle = Bundle()
-                    bundle.putSerializable("obj", usuario)
-                    otrointent.putExtras(bundle)
-                    text_pass.setText("")
-                    this.startActivity(otrointent)
-                } else {
-                    Toast.makeText(this, "Error al ingresar", Toast.LENGTH_LONG).show()
-                    text_pass.setText("")
-                }
+                val consulta = ConsultaUsuario(this)
+                consulta.validarUsuario(correo, pass)
 
             }
             R.id.btnRegistrar -> {

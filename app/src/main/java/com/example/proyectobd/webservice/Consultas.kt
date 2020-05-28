@@ -75,6 +75,9 @@ class Consultas (contexto: Context) {
 
     }
 
+    fun eliminarProducto(producto: Producto) {
+    }
+
     fun obtenerProductos() : ArrayList<Producto> {
 
         val productos = ArrayList<Producto>()
