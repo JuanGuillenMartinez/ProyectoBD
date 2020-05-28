@@ -80,7 +80,7 @@ class DatabaseHelper (context: Context) :
 
     }
 
-    fun validarUsuario(correo: String, pass: String) : Boolean {
+    /*fun validarUsuario(correo: String, pass: String) : Boolean {
 
         val db = this.writableDatabase
         val args = arrayOf(correo, pass)
@@ -93,7 +93,7 @@ class DatabaseHelper (context: Context) :
             return  true
         }
         return false
-    }
+    }*/
 
     val obtenerDatos : Cursor
         get() {

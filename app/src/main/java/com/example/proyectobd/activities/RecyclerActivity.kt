@@ -26,8 +26,8 @@ class RecyclerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
-        val objeto = intent.extras
-        val usuario: Usuario = objeto?.getSerializable("obj") as Usuario
+        val datos = intent.extras
+        val usuario: Usuario = datos?.getSerializable("obj") as Usuario
         AndroidNetworking.initialize(applicationContext)
         mostrarRecycler()
 
@@ -45,19 +45,14 @@ class RecyclerActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         when(item.itemId) {
             R.id.mnitem_producto -> {
-
                 val intent = Intent(this, InsertActivity::class.java)
                 this.startActivity(intent)
-
                 true
             }
-
             else -> false
         }
-
         return super.onOptionsItemSelected(item)
     }
 
@@ -95,7 +90,8 @@ class RecyclerActivity : AppCompatActivity() {
                         val subcategoria = objeto.getString("subcategoria_id").toInt()
                         val unidadMedida = objeto.getString("unidad_medida_id").toInt()
                         val usuarioCrea = objeto.getString("usuarioCrea_id").toInt()
-                        var producto: Producto = Producto(estado, codigo, codigoBarra, descripcion, precio, existencia, marca, subcategoria, unidadMedida, usuarioCrea)
+                        var producto: Producto = Producto(estado, codigo, codigoBarra, descripcion, precio, existencia, marca,
+                                                          subcategoria, unidadMedida, usuarioCrea )
                         producto.ultimaCompra = ultimaCompra
                         producto.usuarioModifica = usuarioModifica
                         producto.fechaCreacion = fechaCreacion
@@ -104,8 +100,7 @@ class RecyclerActivity : AppCompatActivity() {
                         productos.add(producto)
 
                         recyclerview_productos.layoutManager = LinearLayoutManager(contexto, LinearLayoutManager.VERTICAL, false)
-                        val adaptador =
-                            Adaptador(productos)
+                        val adaptador = Adaptador(productos)
                         recyclerview_productos.adapter = adaptador
 
                     }
