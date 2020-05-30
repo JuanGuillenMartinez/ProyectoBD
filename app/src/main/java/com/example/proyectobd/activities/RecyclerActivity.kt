@@ -61,7 +61,7 @@ class RecyclerActivity : AppCompatActivity() {
     fun mostrarRecycler() {
 
         val consulta = Consultas(this)
-        consulta.obtenerProductos(recyclerview_productos, usuario)
+        consulta.obtenerProductos(recyclerview_productos)
 
     }
 
