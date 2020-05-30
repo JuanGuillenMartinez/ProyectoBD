@@ -29,5 +29,6 @@
     <string name="texto_ultimacompra">Última compra</string>
     <string name="texto_especificar">Especificar</string>
     <string name="texto_modificar">Modificar</string>
+    <string name="texto_repetir_contraseña">Repetir Contraseña</string>
 
 </resources>

@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_insert.*
 class InsertActivity : AppCompatActivity() , View.OnClickListener {
 
     internal var db = DatabaseHelper(this)
-    var estado: String = "false"
+    var estado: String = "true"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +42,7 @@ class InsertActivity : AppCompatActivity() , View.OnClickListener {
                 val conexion = ConsultaProducto(this)
                 val producto = crearProducto()
                 conexion.registrarProducto(producto)
+                btn_agregar.isEnabled = false
             }
             R.id.imageButton_barras -> {
                 val intent = Intent(this, SimpleScannerActivity::class.java)
@@ -78,31 +79,6 @@ class InsertActivity : AppCompatActivity() , View.OnClickListener {
 
         return producto
 
-    }
-
-    /*fun insertarDatos() {
-        val nombre = campo_descripcion.text.toString()
-        val precio = campo_precio.text.toString()
-        val existencia = campo_existencia.text.toString()
-
-        try {
-            db.agregar(nombre, precio, existencia)
-            mostrarToast("Producto agregado correctamente")
-            limpiarTexto()
-        } catch (e: Exception) {
-            e.printStackTrace()
-            mostrarToast(e.message.toString())
-        }
-    }*/
-
-    private fun mostrarToast(texto: String) {
-        Toast.makeText(this, texto, Toast.LENGTH_LONG).show()
-    }
-
-    private fun limpiarTexto() {
-        campo_descripcion.setText("")
-        campo_precio.setText("")
-        campo_existencia.setText("")
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.proyectobd.webservice
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -17,8 +18,38 @@ import org.json.JSONObject
 class ConsultaUsuario (context: Context) {
 
     val context = context
-    val urlValidarUsuario = "https://mysterious-woodland-17155.herokuapp.com/api_rest/Validar_usuario_GET.php"
-    val urlValidarPassword = "https://mysterious-woodland-17155.herokuapp.com/api_rest/Validar_contrase%C3%B1a_POST.php"
+    val urlValidarUsuario: String
+    val urlValidarPassword: String
+    val urlRegistrarUsuario: String
+
+    init {
+        urlValidarUsuario = "https://mysterious-woodland-17155.herokuapp.com/api_rest/Validar_usuario_GET.php"
+        urlValidarPassword = "https://mysterious-woodland-17155.herokuapp.com/api_rest/Validar_contrase%C3%B1a_POST.php"
+        urlRegistrarUsuario = "https://mysterious-woodland-17155.herokuapp.com/api_rest/INSERT_usuario_POST.php"
+    }
+
+    fun registrarUsuario(username: String, correo: String, contraseña: String) {
+
+        AndroidNetworking.post(urlRegistrarUsuario)
+            .addBodyParameter("username", username)
+            .addBodyParameter("correo", correo)
+            .addBodyParameter("password", contraseña)
+            .setPriority(Priority.MEDIUM)
+            .build()
+            .getAsJSONObject(object: JSONObjectRequestListener {
+
+                override fun onResponse(response: JSONObject) {
+                    val respuesta: String = response.getString("estado")
+                    Toast.makeText(context, respuesta, Toast.LENGTH_LONG).show()
+                    (context as Activity).finish()
+                }
+
+                override fun onError(anError: ANError) {
+                    Toast.makeText(context, "Error: ${anError.errorDetail}\n${anError.errorBody}", Toast.LENGTH_LONG)
+                }
+            })
+
+    }
 
     fun validarUsuario(username: String, password: String) {
 

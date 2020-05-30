@@ -80,6 +80,23 @@
                 android:ems="10"
                 android:inputType="textPassword" />
 
+            <TextView
+                android:id="@+id/title_repcontraseña"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:text="@string/texto_repetir_contraseña" />
+
+            <EditText
+                android:id="@+id/campo_repcontraseña"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:ems="10"
+                android:inputType="textPassword" />
+
             <Button
                 android:id="@+id/btn1"
                 android:layout_width="match_parent"

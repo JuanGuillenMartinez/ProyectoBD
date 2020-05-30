@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.Toast
 import com.example.proyectobd.R
 import com.example.proyectobd.clases.DatabaseHelper
+import com.example.proyectobd.clases.Hasher
+import com.example.proyectobd.webservice.ConsultaUsuario
 import kotlinx.android.synthetic.main.activity_sigin.*
 
 class SiginActivity : AppCompatActivity(), View.OnClickListener {
@@ -20,20 +22,36 @@ class SiginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         when(v.id) {
             R.id.btn1 -> {
-                val db = DatabaseHelper(this)
-                val correo = campo_correo.text.toString()
-                val contraseña = campo_contraseña.text.toString()
-                if(db.registrarUsuario(correo, contraseña)) {
-                    Toast.makeText(this, "Guardado Correctamente ", Toast.LENGTH_LONG).show()
-                    finish()
+                val consulta = ConsultaUsuario(this)
+                val username: String = campo_nombre_usuario.text.toString()
+                val contraseña: String = campo_contraseña.text.toString()
+                val contraseñaRep: String = campo_repcontraseña.text.toString()
+
+                if (validarCampoContraseña(contraseña, contraseñaRep)) {
+                    val consulta = ConsultaUsuario(this)
+                    val username = campo_nombre_usuario.text.toString()
+                    val correo = campo_correo.text.toString()
+                    val contraseña = Hasher.hash(campo_contraseña.text.toString())
+                    consulta.registrarUsuario(username, correo, contraseña)
                 } else {
-                    Toast.makeText(this, "Error ", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_LONG)
                 }
+
             }
             R.id.btn2 -> {
                 finish()
             }
         }
+    }
+
+    fun validarCampoContraseña(pass: String, passRep: String) : Boolean {
+
+        if (pass.equals(passRep)) {
+            return true
+        } else {
+            return false
+        }
+
     }
 
 }
