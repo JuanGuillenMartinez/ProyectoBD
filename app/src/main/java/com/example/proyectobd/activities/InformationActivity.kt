@@ -4,12 +4,13 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectobd.R
 import com.example.proyectobd.clases.Preference
 import com.example.proyectobd.clases.Producto
-import com.example.proyectobd.webservice.ConsultaPoducto
+import com.example.proyectobd.webservice.ConsultaProducto
 import kotlinx.android.synthetic.main.activity_information.*
 
 class InformationActivity : AppCompatActivity(), View.OnClickListener {
@@ -36,8 +37,9 @@ class InformationActivity : AppCompatActivity(), View.OnClickListener {
                 builder.setMessage("¿Desea eliminar el producto?")
                 builder.setCancelable(false)
                 builder.setPositiveButton("Si, estoy seguro") { dialog, which ->
-                    val consulta = ConsultaPoducto(this)
+                    val consulta = ConsultaProducto(this)
                     val usuarioModifica = Preference(this).getId().toString()
+                    Toast.makeText(this, "usuarioModifica\n${producto.id_producto}", Toast.LENGTH_LONG).show()
                     consulta.eliminarProducto(usuarioModifica,producto.id_producto.toString())
                 }
                 builder.setNegativeButton("No") { dialog, which ->
@@ -52,7 +54,7 @@ class InformationActivity : AppCompatActivity(), View.OnClickListener {
                 builder.setMessage("¿Desea actualizar la informacion del producto?")
                 builder.setCancelable(false)
                 builder.setPositiveButton("Si, estoy seguro") { dialog, which ->
-                    val consulta = ConsultaPoducto(this)
+                    val consulta = ConsultaProducto(this)
                     val usuarioModifica = Preference(this).getId().toString()
                     val aux = generarAuxiliar()
                     consulta.actualizarProducto(aux)

@@ -9,8 +9,9 @@ import android.widget.Toast
 import com.androidnetworking.AndroidNetworking
 import com.example.proyectobd.R
 import com.example.proyectobd.clases.DatabaseHelper
+import com.example.proyectobd.clases.Preference
 import com.example.proyectobd.clases.Producto
-import com.example.proyectobd.webservice.ConsultaPoducto
+import com.example.proyectobd.webservice.ConsultaProducto
 import kotlinx.android.synthetic.main.activity_insert.*
 
 class InsertActivity : AppCompatActivity() , View.OnClickListener {
@@ -38,7 +39,7 @@ class InsertActivity : AppCompatActivity() , View.OnClickListener {
     override fun onClick(v: View) {
         when(v.id) {
             R.id.btn_agregar -> {
-                val conexion = ConsultaPoducto(this)
+                val conexion = ConsultaProducto(this)
                 val producto = crearProducto()
                 conexion.registrarProducto(producto)
             }
@@ -71,7 +72,7 @@ class InsertActivity : AppCompatActivity() , View.OnClickListener {
         val subcategoria = campo_subcategoria.text.toString().toInt()
         val precio = campo_precio.text.toString().toFloat()
         val existencia = campo_existencia.text.toString().toInt()
-        val usuarioCrea = 1
+        val usuarioCrea = Preference(this).getId()
 
         val producto = Producto(estado, codigo, codigoBarras, descripcion, precio, existencia, marca, subcategoria, unidadMedida, usuarioCrea)
 

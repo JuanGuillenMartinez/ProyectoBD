@@ -14,13 +14,14 @@ import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.example.proyectobd.activities.InformationActivity
 import com.example.proyectobd.clases.Adaptador
+import com.example.proyectobd.clases.Preference
 import com.example.proyectobd.clases.Producto
 import com.example.proyectobd.clases.Usuario
 import kotlinx.android.synthetic.main.activity_recycler.*
 import org.json.JSONArray
 import org.json.JSONObject
 
-class ConsultaPoducto (contexto: Context) {
+class ConsultaProducto (contexto: Context) {
 
     val context: Context
     val url_insert: String
@@ -32,7 +33,7 @@ class ConsultaPoducto (contexto: Context) {
         context = contexto
         url_insert = "https://mysterious-woodland-17155.herokuapp.com/api_rest/INSERT_producto_POST.php"
         url_allProductos = "https://mysterious-woodland-17155.herokuapp.com/api_rest/SELECT_ALL_producto_GET.php"
-        url_delete = "https://mysterious-woodland-17155.herokuapp.com/api_rest/DELETE_producto_POST.php"
+        url_delete = "https://mysterious-woodland-17155.herokuapp.com/api_rest/DELETE_%20producto_POST.php"
         url_update = "https://mysterious-woodland-17155.herokuapp.com/api_rest/UPDATE_productos_POST.php"
     }
 
@@ -127,7 +128,7 @@ class ConsultaPoducto (contexto: Context) {
 
         val productos = ArrayList<Producto>()
 
-        AndroidNetworking.get(url_allProductos)
+        AndroidNetworking.get(url_allProductos+"?id=${Preference(context).getId()}")
             .setPriority(Priority.MEDIUM)
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener {

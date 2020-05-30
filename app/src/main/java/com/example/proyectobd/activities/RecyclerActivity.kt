@@ -8,7 +8,7 @@ import android.view.MenuItem
 import com.androidnetworking.AndroidNetworking
 import com.example.proyectobd.R
 import com.example.proyectobd.clases.Usuario
-import com.example.proyectobd.webservice.ConsultaPoducto
+import com.example.proyectobd.webservice.ConsultaProducto
 import kotlinx.android.synthetic.main.activity_recycler.*
 
 class RecyclerActivity : AppCompatActivity() {
@@ -51,7 +51,7 @@ class RecyclerActivity : AppCompatActivity() {
 
     fun mostrarRecycler() {
 
-        val consulta = ConsultaPoducto(this)
+        val consulta = ConsultaProducto(this)
         consulta.obtenerProductos(recyclerview_productos)
 
     }
