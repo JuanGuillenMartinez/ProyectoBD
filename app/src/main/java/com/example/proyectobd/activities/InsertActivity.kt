@@ -45,7 +45,6 @@ class InsertActivity : AppCompatActivity() , View.OnClickListener {
             R.id.imageButton_barras -> {
                 val intent = Intent(this, SimpleScannerActivity::class.java)
                 startActivityForResult(intent, 1)
-
             }
         }
     }

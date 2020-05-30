@@ -1,17 +1,14 @@
 package com.example.proyectobd.activities
 
-import android.content.DialogInterface
-import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.preference.PreferenceManager
+import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectobd.R
 import com.example.proyectobd.clases.Preference
 import com.example.proyectobd.clases.Producto
-import com.example.proyectobd.clases.Usuario
 import com.example.proyectobd.webservice.ConsultaPoducto
 import kotlinx.android.synthetic.main.activity_information.*
 
@@ -27,6 +24,64 @@ class InformationActivity : AppCompatActivity(), View.OnClickListener {
         mostrarProducto(producto)
         changeSwitch(producto)
         btn_eliminar.setOnClickListener(this)
+        btn_actualizar.setOnClickListener(this)
+        imgbtn_barra.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View) {
+
+        when(v.id) {
+            R.id.btn_eliminar -> {
+                val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+                builder.setMessage("¿Desea eliminar el producto?")
+                builder.setCancelable(false)
+                builder.setPositiveButton("Si, estoy seguro") { dialog, which ->
+                    val consulta = ConsultaPoducto(this)
+                    val usuarioModifica = Preference(this).getId().toString()
+                    consulta.eliminarProducto(usuarioModifica,producto.id_producto.toString())
+                }
+                builder.setNegativeButton("No") { dialog, which ->
+                    dialog.cancel()
+                }
+                val dialog = builder.create()
+                dialog.show()
+            }
+
+            R.id.btn_actualizar -> {
+                val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+                builder.setMessage("¿Desea actualizar la informacion del producto?")
+                builder.setCancelable(false)
+                builder.setPositiveButton("Si, estoy seguro") { dialog, which ->
+                    val consulta = ConsultaPoducto(this)
+                    val usuarioModifica = Preference(this).getId().toString()
+                    val aux = generarAuxiliar()
+                    consulta.actualizarProducto(aux)
+                }
+                builder.setNegativeButton("No") { dialog, which ->
+                    dialog.cancel()
+                }
+                val dialog = builder.create()
+                dialog.show()
+            }
+
+            R.id.imgbtn_barra -> {
+                val intent = Intent(this, SimpleScannerActivity::class.java)
+                startActivityForResult(intent, 2)
+
+            }
+        }
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == 2) {
+            if(resultCode == Activity.RESULT_OK) {
+                val result = data?.getStringExtra("codigo")
+                campo_codigobarra.setText(result)
+            }
+        }
     }
 
     fun changeSwitch(producto: Producto) {
@@ -38,7 +93,7 @@ class InformationActivity : AppCompatActivity(), View.OnClickListener {
                 campo_usuariomodifica.setText(username)
             } else {
                 habilitarText(false)
-                campo_usuariomodifica.setText(producto.usuarioModifica)
+                mostrarProducto(producto)
             }
         }
 
@@ -46,18 +101,22 @@ class InformationActivity : AppCompatActivity(), View.OnClickListener {
 
     fun habilitarText(estado: Boolean) {
 
-        campo_id.isEnabled = estado
         campo_descripcion.isEnabled = estado
         campo_precio.isEnabled = estado
         campo_existencia.isEnabled = estado
         campo_codigo.isEnabled = estado
         campo_codigobarra.isEnabled = estado
-        campo_fechacreacion.isEnabled = estado
-        campo_fechamodificacion.isEnabled = estado
         campo_marca.isEnabled = estado
         campo_medida.isEnabled = estado
         campo_subcategoria.isEnabled = estado
-        campo_ultimacompra.isEnabled = estado
+        btn_actualizar.isEnabled = estado
+        imgbtn_barra.isEnabled = estado
+        campo_usuariocrea.isEnabled = false
+        campo_usuariomodifica.isEnabled = false
+        campo_ultimacompra.isEnabled = false
+        campo_fechacreacion.isEnabled = false
+        campo_fechamodificacion.isEnabled = false
+        campo_id.isEnabled = false
 
     }
 
@@ -80,38 +139,27 @@ class InformationActivity : AppCompatActivity(), View.OnClickListener {
         img_foto.setImageResource(R.drawable.logo_tecnm)
 
         habilitarText(false)
-        campo_usuariocrea.isEnabled = false
-        campo_usuariomodifica.isEnabled = false
+        btn_actualizar.isEnabled = false
+        imgbtn_barra.isEnabled = false
 
     }
 
-    override fun onClick(v: View) {
+    fun generarAuxiliar() : Producto {
 
-        when(v.id) {
-            R.id.btn_eliminar -> {
-
-                mostrarConfirmacion()
-
-            }
-        }
-
-    }
-
-    fun mostrarConfirmacion() {
-
-        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-        builder.setMessage("¿Desea eliminar el producto?")
-        builder.setCancelable(false)
-        builder.setPositiveButton("Si, estoy seguro") { dialog, which ->
-            val consulta = ConsultaPoducto(this)
-            val usuarioModifica = Preference(this).getId().toString()
-            consulta.eliminarProducto(usuarioModifica,producto.id_producto.toString())
-        }
-        builder.setNegativeButton("No") { dialog, which ->
-            dialog.cancel()
-        }
-        val dialog = builder.create()
-        dialog.show()
+        val descripcion = campo_descripcion.text.toString()
+        val codigo = campo_codigo.text.toString()
+        val codigoBarras = campo_codigobarra.text.toString()
+        val estado = true.toString()
+        val marca = campo_marca.text.toString().toInt()
+        val unidadMedida = campo_medida.text.toString().toInt()
+        val subcategoria = campo_subcategoria.text.toString().toInt()
+        val precio = campo_precio.text.toString().toFloat()
+        val existencia = campo_existencia.text.toString().toInt()
+        val usuarioCrea = campo_usuariocrea.text.toString().toInt()
+        val producto = Producto(estado, codigo, codigoBarras, descripcion, precio, existencia, marca, subcategoria, unidadMedida, usuarioCrea)
+        producto.id_producto = campo_id.text.toString().toInt()
+        producto.usuarioModifica = Preference(this).getId().toString()
+        return producto
 
     }
 

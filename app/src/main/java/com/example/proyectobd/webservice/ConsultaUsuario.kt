@@ -78,7 +78,7 @@ class ConsultaUsuario (context: Context) {
                         context.startActivity(intent)
 
                     } else if (nombreUsuario.equals("indefinido")){
-                        Toast.makeText(context, "Contraseña incorrecta", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "Contraseña incorrecta\n ${response.getString("estado")}", Toast.LENGTH_LONG).show()
                     }
                 }
 

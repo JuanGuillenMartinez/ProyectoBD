@@ -3,6 +3,7 @@ package com.example.proyectobd.webservice
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,12 +26,14 @@ class ConsultaPoducto (contexto: Context) {
     val url_insert: String
     val url_allProductos: String
     val url_delete: String
+    val url_update: String
 
     init {
         context = contexto
         url_insert = "https://mysterious-woodland-17155.herokuapp.com/api_rest/INSERT_producto_POST.php"
         url_allProductos = "https://mysterious-woodland-17155.herokuapp.com/api_rest/SELECT_ALL_producto_GET.php"
-        url_delete = "https://mysterious-woodland-17155.herokuapp.com/api_rest/DELETE_%20producto_POST.php"
+        url_delete = "https://mysterious-woodland-17155.herokuapp.com/api_rest/DELETE_producto_POST.php"
+        url_update = "https://mysterious-woodland-17155.herokuapp.com/api_rest/UPDATE_productos_POST.php"
     }
 
     fun registrarProducto(producto: Producto) {
@@ -79,6 +82,41 @@ class ConsultaPoducto (contexto: Context) {
                 override fun onError(anError: ANError) {
                     Toast.makeText(context, "Error " + anError.errorDetail, Toast.LENGTH_LONG)
                         .show()
+                }
+
+            })
+
+    }
+
+    fun actualizarProducto(producto: Producto) {
+
+        AndroidNetworking.post(url_update)
+            .addBodyParameter("idProducto", producto.id_producto.toString())
+            .addBodyParameter("descripcion", producto.descripcion)
+            .addBodyParameter("precio", producto.precio.toString())
+            .addBodyParameter("existencia", producto.existencia.toString())
+            .addBodyParameter("codigo", producto.codigo)
+            .addBodyParameter("codigoBarras", producto.codigoBarra)
+            .addBodyParameter("marcaId", producto.marca.toString())
+            .addBodyParameter("subcategoriaId", producto.subcategoria.toString())
+            .addBodyParameter("unidadMedida", producto.unidadMedida.toString())
+            .addBodyParameter("usuarioModifica", producto.usuarioModifica)
+            .setPriority(Priority.MEDIUM)
+            .build()
+            .getAsJSONObject(object : JSONObjectRequestListener {
+
+                override fun onResponse(response: JSONObject) {
+                    Toast.makeText(context, response.getString("estado"), Toast.LENGTH_LONG ).show()
+                    (context as Activity).finish()
+                    val intent = context.intent
+                    val bundle = Bundle()
+                    bundle.putSerializable("producto", producto)
+                    intent.putExtras(bundle)
+                    context.startActivity(intent)
+                }
+
+                override fun onError(anError: ANError) {
+                    Toast.makeText(context, "Error " + anError.errorDetail, Toast.LENGTH_LONG ).show()
                 }
 
             })
