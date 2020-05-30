@@ -18,13 +18,13 @@ import com.example.proyectobd.activities.InformationActivity
 import com.example.proyectobd.R
 import com.example.proyectobd.activities.SimpleScannerActivity
 
-class Adaptador(var lista: ArrayList<Producto>, var usuario: Usuario) : RecyclerView.Adapter<Adaptador.ViewHolder>() {
+class Adaptador(var lista: ArrayList<Producto>) : RecyclerView.Adapter<Adaptador.ViewHolder>() {
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
         val context: Context = itemView.context
 
-        fun bindItems (datos: Producto, usuario: Usuario) {
+        fun bindItems (datos: Producto) {
 
             val producto = datos
             val descripcion:TextView = itemView.findViewById(R.id.textv_titulo)
@@ -52,14 +52,8 @@ class Adaptador(var lista: ArrayList<Producto>, var usuario: Usuario) : Recycler
                             val intent = Intent(context, InformationActivity::class.java)
                             val bundle = Bundle()
                             bundle.putSerializable("producto", producto)
-                            bundle.putSerializable("usuario", usuario)
                             intent.putExtras(bundle)
                             context.startActivity(intent)
-                            true
-                        }
-
-                        R.id.mnitem_producto -> {
-
                             true
                         }
 
@@ -86,6 +80,6 @@ class Adaptador(var lista: ArrayList<Producto>, var usuario: Usuario) : Recycler
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindItems(lista[position], usuario)
+        holder.bindItems(lista[position])
     }
 }

@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_recycler.*
 import org.json.JSONArray
 import org.json.JSONObject
 
-class Consultas (contexto: Context) {
+class ConsultaPoducto (contexto: Context) {
 
     val context: Context
     val url_insert: String
@@ -59,7 +59,7 @@ class Consultas (contexto: Context) {
     fun eliminarProducto(producto: Producto) {
     }
 
-    fun obtenerProductos(recycler: RecyclerView, usuario: Usuario) {
+    fun obtenerProductos(recycler: RecyclerView) {
 
         val productos = ArrayList<Producto>()
 
@@ -96,11 +96,12 @@ class Consultas (contexto: Context) {
                         producto.fechaModificacion = fechaModificacion
                         productos.add(producto)
 
-                        recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-                        val adaptador = Adaptador(productos, usuario)
-                        recycler.adapter = adaptador
-
                     }
+
+                    recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                    val adaptador = Adaptador(productos)
+                    recycler.adapter = adaptador
+
                 }
 
                 override fun onError(anError: ANError) {

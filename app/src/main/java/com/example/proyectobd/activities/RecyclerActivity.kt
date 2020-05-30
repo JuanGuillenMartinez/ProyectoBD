@@ -5,20 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.androidnetworking.AndroidNetworking
-import com.androidnetworking.common.Priority
-import com.androidnetworking.error.ANError
-import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.example.proyectobd.R
 import com.example.proyectobd.clases.Usuario
-import com.example.proyectobd.clases.Adaptador
-import com.example.proyectobd.clases.Producto
-import com.example.proyectobd.webservice.Consultas
+import com.example.proyectobd.webservice.ConsultaPoducto
 import kotlinx.android.synthetic.main.activity_recycler.*
-import org.json.JSONArray
-import org.json.JSONObject
 
 class RecyclerActivity : AppCompatActivity() {
 
@@ -60,8 +51,8 @@ class RecyclerActivity : AppCompatActivity() {
 
     fun mostrarRecycler() {
 
-        val consulta = Consultas(this)
-        consulta.obtenerProductos(recyclerview_productos, usuario)
+        val consulta = ConsultaPoducto(this)
+        consulta.obtenerProductos(recyclerview_productos)
 
     }
 

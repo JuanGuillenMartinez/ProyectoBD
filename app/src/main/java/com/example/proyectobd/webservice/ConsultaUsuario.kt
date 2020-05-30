@@ -3,12 +3,14 @@ package com.example.proyectobd.webservice
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.preference.PreferenceManager
 import android.widget.Toast
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.example.proyectobd.activities.RecyclerActivity
+import com.example.proyectobd.clases.Preference
 import com.example.proyectobd.clases.Usuario
 import org.json.JSONObject
 
@@ -70,7 +72,10 @@ class ConsultaUsuario (context: Context) {
                         val bundle: Bundle = Bundle()
                         bundle.putSerializable("obj", usuario)
                         intent.putExtras(bundle)
+                        val pref = Preference(context)
+                        pref.setUsername(nombreUsuario)
                         context.startActivity(intent)
+
                     } else if (nombreUsuario.equals("indefinido")){
                         Toast.makeText(context, "Contraseña incorrecta", Toast.LENGTH_LONG).show()
                     }

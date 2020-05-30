@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.example.proyectobd.R
 import com.example.proyectobd.clases.Usuario
 import com.example.proyectobd.clases.DatabaseHelper
+import com.example.proyectobd.clases.Preference
 import com.example.proyectobd.webservice.ConsultaUsuario
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -29,7 +30,6 @@ class LoginActivity : AppCompatActivity() , View.OnClickListener {
 
         when(v.id) {
             R.id.btnIngresar -> {
-                val db = DatabaseHelper(this)
                 val correo = text_correo.text.toString().trim()
                 val pass = text_pass.text.toString()
                 val consulta = ConsultaUsuario(this)

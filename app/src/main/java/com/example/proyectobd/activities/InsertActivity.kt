@@ -10,7 +10,7 @@ import com.androidnetworking.AndroidNetworking
 import com.example.proyectobd.R
 import com.example.proyectobd.clases.DatabaseHelper
 import com.example.proyectobd.clases.Producto
-import com.example.proyectobd.webservice.Consultas
+import com.example.proyectobd.webservice.ConsultaPoducto
 import kotlinx.android.synthetic.main.activity_insert.*
 
 class InsertActivity : AppCompatActivity() , View.OnClickListener {
@@ -38,7 +38,7 @@ class InsertActivity : AppCompatActivity() , View.OnClickListener {
     override fun onClick(v: View) {
         when(v.id) {
             R.id.btn_agregar -> {
-                val conexion = Consultas(this)
+                val conexion = ConsultaPoducto(this)
                 val producto = crearProducto()
                 conexion.registrarProducto(producto)
             }

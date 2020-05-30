@@ -1,8 +1,12 @@
 package com.example.proyectobd.activities
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.preference.PreferenceManager
 import com.example.proyectobd.R
+import com.example.proyectobd.clases.Preference
 import com.example.proyectobd.clases.Producto
 import com.example.proyectobd.clases.Usuario
 import kotlinx.android.synthetic.main.activity_information.*
@@ -15,14 +19,14 @@ class InformationActivity : AppCompatActivity() {
 
         val objeto = intent.extras
         val producto: Producto = objeto?.getSerializable("producto") as Producto
-        val usuario: Usuario = objeto?.getSerializable("usuario") as Usuario
 
         mostrarProducto(producto)
 
         switch_modificar.setOnCheckedChangeListener { buttonView, isChecked ->
             if(switch_modificar.isChecked) {
+                val username: String? = Preference(this).getUsername()
                 habilitarText(true)
-                campo_usuariomodifica.setText(usuario.nombreUsuario)
+                campo_usuariomodifica.setText(username)
             } else {
                 habilitarText(false)
                 campo_usuariomodifica.setText(producto.usuarioModifica)

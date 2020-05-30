@@ -9,7 +9,6 @@ import com.androidnetworking.AndroidNetworking
 import com.example.proyectobd.Productos
 import com.example.proyectobd.R
 import com.example.proyectobd.clases.DatabaseHelper
-import com.example.proyectobd.webservice.Consultas
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
 
