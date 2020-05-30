@@ -74,6 +74,7 @@ class ConsultaUsuario (context: Context) {
                         intent.putExtras(bundle)
                         val pref = Preference(context)
                         pref.setUsername(nombreUsuario)
+                        pref.setId(id)
                         context.startActivity(intent)
 
                     } else if (nombreUsuario.equals("indefinido")){

@@ -1,13 +1,17 @@
 package com.example.proyectobd.webservice
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.common.ANResponse
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
+import com.example.proyectobd.activities.InformationActivity
 import com.example.proyectobd.clases.Adaptador
 import com.example.proyectobd.clases.Producto
 import com.example.proyectobd.clases.Usuario
@@ -20,11 +24,13 @@ class ConsultaPoducto (contexto: Context) {
     val context: Context
     val url_insert: String
     val url_allProductos: String
+    val url_delete: String
 
     init {
         context = contexto
         url_insert = "https://mysterious-woodland-17155.herokuapp.com/api_rest/INSERT_producto_POST.php"
         url_allProductos = "https://mysterious-woodland-17155.herokuapp.com/api_rest/SELECT_ALL_producto_GET.php"
+        url_delete = "https://mysterious-woodland-17155.herokuapp.com/api_rest/DELETE_%20producto_POST.php"
     }
 
     fun registrarProducto(producto: Producto) {
@@ -56,7 +62,27 @@ class ConsultaPoducto (contexto: Context) {
 
     }
 
-    fun eliminarProducto(producto: Producto) {
+    fun eliminarProducto(usuarioModifica: String, idProducto: String) {
+
+        AndroidNetworking.post(url_delete)
+            .addBodyParameter("usuarioModifica", usuarioModifica)
+            .addBodyParameter("idProducto", idProducto)
+            .setPriority(Priority.LOW)
+            .build()
+            .getAsJSONObject(object : JSONObjectRequestListener {
+
+                override fun onResponse(response: JSONObject) {
+                    Toast.makeText(context, response.getString("estado"), Toast.LENGTH_LONG).show()
+                    (context as Activity).finish()
+                }
+
+                override fun onError(anError: ANError) {
+                    Toast.makeText(context, "Error " + anError.errorDetail, Toast.LENGTH_LONG)
+                        .show()
+                }
+
+            })
+
     }
 
     fun obtenerProductos(recycler: RecyclerView) {

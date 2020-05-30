@@ -1,29 +1,38 @@
 package com.example.proyectobd.activities
 
+import android.content.DialogInterface
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.preference.PreferenceManager
 import com.example.proyectobd.R
 import com.example.proyectobd.clases.Preference
 import com.example.proyectobd.clases.Producto
 import com.example.proyectobd.clases.Usuario
+import com.example.proyectobd.webservice.ConsultaPoducto
 import kotlinx.android.synthetic.main.activity_information.*
 
-class InformationActivity : AppCompatActivity() {
+class InformationActivity : AppCompatActivity(), View.OnClickListener {
+
+    lateinit var producto: Producto
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_information)
-
         val objeto = intent.extras
-        val producto: Producto = objeto?.getSerializable("producto") as Producto
-
+        producto = objeto?.getSerializable("producto") as Producto
         mostrarProducto(producto)
+        changeSwitch(producto)
+        btn_eliminar.setOnClickListener(this)
+    }
+
+    fun changeSwitch(producto: Producto) {
 
         switch_modificar.setOnCheckedChangeListener { buttonView, isChecked ->
-            if(switch_modificar.isChecked) {
+            if (switch_modificar.isChecked) {
                 val username: String? = Preference(this).getUsername()
                 habilitarText(true)
                 campo_usuariomodifica.setText(username)
@@ -73,6 +82,36 @@ class InformationActivity : AppCompatActivity() {
         habilitarText(false)
         campo_usuariocrea.isEnabled = false
         campo_usuariomodifica.isEnabled = false
+
+    }
+
+    override fun onClick(v: View) {
+
+        when(v.id) {
+            R.id.btn_eliminar -> {
+
+                mostrarConfirmacion()
+
+            }
+        }
+
+    }
+
+    fun mostrarConfirmacion() {
+
+        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+        builder.setMessage("¿Desea eliminar el producto?")
+        builder.setCancelable(false)
+        builder.setPositiveButton("Si, estoy seguro") { dialog, which ->
+            val consulta = ConsultaPoducto(this)
+            val usuarioModifica = Preference(this).getId().toString()
+            consulta.eliminarProducto(usuarioModifica,producto.id_producto.toString())
+        }
+        builder.setNegativeButton("No") { dialog, which ->
+            dialog.cancel()
+        }
+        val dialog = builder.create()
+        dialog.show()
 
     }
 
