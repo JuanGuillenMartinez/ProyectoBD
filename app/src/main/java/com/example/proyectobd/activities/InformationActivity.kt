@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.proyectobd.R
 import com.example.proyectobd.clases.Preference
 import com.example.proyectobd.clases.Producto
@@ -56,7 +57,7 @@ class InformationActivity : AppCompatActivity(), View.OnClickListener {
                 builder.setPositiveButton("Si, estoy seguro") { dialog, which ->
                     val consulta = ConsultaProducto(this)
                     val usuarioModifica = Preference(this).getId().toString()
-                    val aux = generarAuxiliar()
+                    val aux = auxiliarActualizar()
                     consulta.actualizarProducto(aux)
                 }
                 builder.setNegativeButton("No") { dialog, which ->
@@ -138,7 +139,7 @@ class InformationActivity : AppCompatActivity(), View.OnClickListener {
         campo_medida.setText(producto.unidadMedida.toString())
         campo_subcategoria.setText(producto.subcategoria.toString())
         campo_ultimacompra.setText(producto.ultimaCompra)
-        img_foto.setImageResource(R.drawable.logo_tecnm)
+        Glide.with(this).load(producto.imagen).into(img_foto)
 
         habilitarText(false)
         btn_actualizar.isEnabled = false
@@ -146,7 +147,7 @@ class InformationActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    fun generarAuxiliar() : Producto {
+    fun auxiliarActualizar() : Producto {
 
         val descripcion = campo_descripcion.text.toString()
         val codigo = campo_codigo.text.toString()

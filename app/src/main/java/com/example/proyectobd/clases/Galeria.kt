@@ -8,7 +8,9 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Environment
 import android.provider.MediaStore
+import androidx.core.graphics.drawable.toDrawable
 import com.cloudinary.android.MediaManager
+import java.io.ByteArrayOutputStream
 import java.io.File
 
 class Galeria() {
@@ -28,11 +30,22 @@ class Galeria() {
 
         }
 
-        fun tomarFoto(context: Context) : Uri? {
-            val value = ContentValues()
-            value.put(MediaStore.Images.Media.TITLE, "NuevaImagen")
-            foto = context.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, value)
-            return foto
+        fun guardarFoto(nombre: String, image: Bitmap) {
+            val stream = ByteArrayOutputStream()
+            image.compress(Bitmap.CompressFormat.JPEG, 50, stream)
+            val foto = stream.toByteArray()
+            val requestId: String = MediaManager.get()
+                .upload(foto)
+                .option("public_id", nombre)
+                .option("folder", "Proyecto/Productos/")
+                .dispatch();
+            stream.close()
+        }
+
+
+        fun obtenerUrlFoto(carpeta: String, subcarpeta: String, nombre: String) : String {
+            val url = MediaManager.get().url().generate("${carpeta}${subcarpeta}$nombre")
+            return url
         }
 
     }

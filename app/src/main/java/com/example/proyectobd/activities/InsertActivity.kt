@@ -3,14 +3,17 @@ package com.example.proyectobd.activities
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.androidnetworking.AndroidNetworking
+import com.bumptech.glide.Glide
 import com.cloudinary.android.MediaManager
 import com.example.proyectobd.R
 import com.example.proyectobd.clases.DatabaseHelper
@@ -27,7 +30,7 @@ class InsertActivity : AppCompatActivity() , View.OnClickListener {
     var estado: String = "true"
     val peticionCodigo = 10
     val peticionTomarFoto = Galeria.peticionTomarFoto
-    var foto: Uri? = null
+    lateinit var image: Bitmap
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +39,7 @@ class InsertActivity : AppCompatActivity() , View.OnClickListener {
         imageButton_barras.setOnClickListener(this)
         imgbtn_foto_producto.setOnClickListener(this)
         AndroidNetworking.initialize(getApplicationContext())
+        confirmarPermisos()
         switch_estatus.setOnCheckedChangeListener { buttonView, isChecked ->
             if(switch_estatus.isChecked) {
                 switch_estatus.text = "Activo"
@@ -53,7 +57,7 @@ class InsertActivity : AppCompatActivity() , View.OnClickListener {
             R.id.btn_agregar -> {
                 val conexion = ConsultaProducto(this)
                 val producto = crearProducto()
-                conexion.registrarProducto(producto)
+                conexion.registrarProducto(producto, image)
                 btn_agregar.isEnabled = false
             }
             R.id.imageButton_barras -> {
@@ -61,9 +65,8 @@ class InsertActivity : AppCompatActivity() , View.OnClickListener {
                 startActivityForResult(intent, peticionCodigo)
             }
             R.id.imgbtn_foto_producto -> {
-
-                abrirCamara()
-
+                val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                startActivityForResult(intent, peticionTomarFoto)
             }
         }
     }
@@ -79,8 +82,13 @@ class InsertActivity : AppCompatActivity() , View.OnClickListener {
         }
         if(requestCode == peticionTomarFoto) {
             if(resultCode == Activity.RESULT_OK) {
-                img_foto.setImageURI(foto)
-                val requestId: String = MediaManager.get().upload(foto).option("public_id", "12345").option("folder", "Proyecto/Productos/").dispatch();
+                if (resultCode == Activity.RESULT_OK) {
+                    this.image = data?.extras?.get("data") as Bitmap
+                    img_foto.setImageBitmap(image)
+            }
+        }
+        if(requestCode==3) {
+
             }
         }
     }
@@ -97,23 +105,16 @@ class InsertActivity : AppCompatActivity() , View.OnClickListener {
         val precio = campo_precio.text.toString().toFloat()
         val existencia = campo_existencia.text.toString().toInt()
         val usuarioCrea = Preference(this).getId()
-
         val producto = Producto(estado, codigo, codigoBarras, descripcion, precio, existencia, marca, subcategoria, unidadMedida, usuarioCrea)
-
         return producto
 
     }
 
-    fun abrirCamara() {
+    fun confirmarPermisos() {
         val permiso = arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED
             || ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, permiso, peticionTomarFoto)
-        } else {
-            this.foto = Galeria.tomarFoto(this)
-            val camaraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            camaraIntent.putExtra(MediaStore.EXTRA_OUTPUT, foto)
-            startActivityForResult(camaraIntent, peticionTomarFoto)
         }
     }
 

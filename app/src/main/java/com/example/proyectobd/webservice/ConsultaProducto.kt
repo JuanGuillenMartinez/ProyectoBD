@@ -3,6 +3,8 @@ package com.example.proyectobd.webservice
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,10 +15,7 @@ import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.example.proyectobd.activities.InformationActivity
-import com.example.proyectobd.clases.Adaptador
-import com.example.proyectobd.clases.Preference
-import com.example.proyectobd.clases.Producto
-import com.example.proyectobd.clases.Usuario
+import com.example.proyectobd.clases.*
 import kotlinx.android.synthetic.main.activity_recycler.*
 import org.json.JSONArray
 import org.json.JSONObject
@@ -28,6 +27,8 @@ class ConsultaProducto (contexto: Context) {
     val url_allProductos: String
     val url_delete: String
     val url_update: String
+    val carpeta = "Proyecto/"
+    val subcarpeta = "Productos/"
 
     init {
         context = contexto
@@ -37,7 +38,7 @@ class ConsultaProducto (contexto: Context) {
         url_update = "https://mysterious-woodland-17155.herokuapp.com/api_rest/UPDATE_productos_POST.php"
     }
 
-    fun registrarProducto(producto: Producto) {
+    fun registrarProducto(producto: Producto, foto: Bitmap) {
 
         AndroidNetworking.post(url_insert)
             .addBodyParameter("estado", producto.estado.toString())
@@ -50,11 +51,13 @@ class ConsultaProducto (contexto: Context) {
             .addBodyParameter("subcategoriaId", producto.subcategoria.toString())
             .addBodyParameter("unidadMedida", producto.unidadMedida.toString())
             .addBodyParameter("usuarioId", producto.usuarioCrea.toString())
+            .addBodyParameter("foto", Galeria.obtenerUrlFoto(carpeta, subcarpeta, producto.codigoBarra))
             .setPriority(Priority.MEDIUM)
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener {
 
                 override fun onResponse(response: JSONObject) {
+                    Galeria.guardarFoto(producto.codigoBarra, foto)
                     Toast.makeText(context, response.getString("estado"), Toast.LENGTH_LONG ).show()
                 }
 
@@ -109,11 +112,6 @@ class ConsultaProducto (contexto: Context) {
                 override fun onResponse(response: JSONObject) {
                     Toast.makeText(context, response.getString("estado"), Toast.LENGTH_LONG ).show()
                     (context as Activity).finish()
-                    val intent = context.intent
-                    val bundle = Bundle()
-                    bundle.putSerializable("producto", producto)
-                    intent.putExtras(bundle)
-                    context.startActivity(intent)
                 }
 
                 override fun onError(anError: ANError) {
@@ -152,6 +150,7 @@ class ConsultaProducto (contexto: Context) {
                         val subcategoria = objeto.getString("subcategoria_id").toInt()
                         val unidadMedida = objeto.getString("unidad_medida_id").toInt()
                         val usuarioCrea = objeto.getString("usuarioCrea_id").toInt()
+                        val imagen = objeto.getString("url_imagen")
                         var producto: Producto = Producto(estado, codigo, codigoBarra, descripcion, precio, existencia, marca,
                             subcategoria, unidadMedida, usuarioCrea )
                         producto.ultimaCompra = ultimaCompra
@@ -159,6 +158,7 @@ class ConsultaProducto (contexto: Context) {
                         producto.fechaCreacion = fechaCreacion
                         producto.id_producto = id
                         producto.fechaModificacion = fechaModificacion
+                        producto.imagen = imagen
                         productos.add(producto)
 
                     }

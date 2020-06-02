@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.cloudinary.android.MediaManager
 import com.example.proyectobd.activities.FormActivity
 import com.example.proyectobd.activities.InformationActivity
 //import com.example.proyectobd.Productos
@@ -34,7 +35,6 @@ class Adaptador(var lista: ArrayList<Producto>) : RecyclerView.Adapter<Adaptador
 
             descripcion.text = producto.descripcion
             precio.text = producto.precio.toString()
-            producto.imagen = R.drawable.producto
             Glide.with(itemView.context).load(producto.imagen).into(foto)
 
             foto.setOnClickListener {

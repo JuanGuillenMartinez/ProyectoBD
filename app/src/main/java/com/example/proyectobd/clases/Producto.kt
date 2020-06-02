@@ -14,7 +14,7 @@ class Producto (var estado: String, var codigo: String, var codigoBarra: String,
     var fechaModificacion: String
     var fechaCreacion: String
     var id_producto: Int
-    var imagen: Int
+    var imagen: String
 
     init {
         this.ultimaCompra = "Indefinido"
@@ -22,7 +22,7 @@ class Producto (var estado: String, var codigo: String, var codigoBarra: String,
         this.fechaModificacion = "Indefinido"
         this.fechaCreacion = "Indefinido"
         this.id_producto = 1
-        this.imagen = 1
+        this.imagen = "Indefinido"
     }
 
     fun idSiguiente() {
