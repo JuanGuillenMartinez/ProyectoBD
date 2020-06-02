@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import com.cloudinary.android.MediaManager
 import com.example.proyectobd.R
-import com.example.proyectobd.clases.Usuario
-import com.example.proyectobd.clases.DatabaseHelper
-import com.example.proyectobd.clases.Hasher
-import com.example.proyectobd.clases.Preference
+import com.example.proyectobd.clases.*
 import com.example.proyectobd.webservice.ConsultaUsuario
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -23,6 +21,7 @@ class LoginActivity : AppCompatActivity() , View.OnClickListener {
         setContentView(R.layout.activity_login)
         btnRegistrar.setOnClickListener(this)
         btnIngresar.setOnClickListener(this)
+        MediaManager.init(this, Galeria.getConfiguracion())
     }
 
     override fun onClick(v: View) {

@@ -107,6 +107,7 @@ class ConsultaUsuario (context: Context) {
                         pref.setUsername(nombreUsuario)
                         pref.setId(id)
                         context.startActivity(intent)
+                        (context as Activity).finish()
 
                     } else if (nombreUsuario.equals("indefinido")){
                         Toast.makeText(context, "Contraseña incorrecta\n ${response.getString("estado")}", Toast.LENGTH_LONG).show()
