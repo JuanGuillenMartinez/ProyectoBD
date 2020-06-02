@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Proyecto "Inventario"</string>
-    <string name="texto_id">ID</string>
+    <string name="texto_id">ID del producto</string>
     <string name="texto_nombre">Nombre</string>
     <string name="texto_precio">Precio</string>
     <string name="texto_existencia">Existencias</string>
@@ -12,4 +12,23 @@
     <string name="texto_password">Contraseña</string>
     <string name="texto_ingresar">Ingresar</string>
     <string name="texto_registrar">Registrar</string>
+    <string name="string_nombre_usuario">Nombre de usuario</string>
+    <string name="string_iniciar_sesion">Iniciar Sesion</string>
+    <string name="texto_descripcion">Descripción</string>
+    <string name="texto_limpiar">"Limpiar "</string>
+    <string name="texto_codigo">Código del producto</string>
+    <string name="texto_codigo_barras">Código de barras</string>
+    <string name="texto_estado_producto">Estado</string>
+    <string name="texto_marca_comercial">Marca comercial</string>
+    <string name="texto_subdepartamento">Linea o subdepartamento</string>
+    <string name="texto_unidadmedida">Presentacion (Kg, Piezas, etc)</string>
+    <string name="texto_fechacreacion">Fecha de seguimiento</string>
+    <string name="texto_usuariocrea">Ingresado por</string>
+    <string name="texto_ultimamodificacion">"Fecha de modificación "</string>
+    <string name="texto_usuariomodifica">Modificado por</string>
+    <string name="texto_ultimacompra">Última compra</string>
+    <string name="texto_especificar">Especificar</string>
+    <string name="texto_modificar">Modificar</string>
+    <string name="texto_repetir_contraseña">Repetir Contraseña</string>
+
 </resources>

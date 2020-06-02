@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2E2A29</color>
-    <color name="colorPrimaryDark">#2E2A29</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="color_bar">#6A42BA</color>
+    <color name="colorSecundaryButton">#D3E7F3</color>
+    <color name="coloPrimaryButton">#B2D8ED</color>
+    <color name="borderColorPrimary">#6CA0D1</color>
+    <color name="colorCancelButton">#66D53737</color>
+    <color name="colorUpdateButton">#F9E79F</color>
+    <color name="colorInsertButton">#16A085</color>
+    <color name="borderUpdateButton">#117A65</color>
+    <color name="firstCategory">#7FB3D5</color>
+    <color name="secondCategory">#A3E4D7</color>
+    <color name="thirdCategory">#ABEBC6</color>
+    <color name="colorOptionalButton">#EAEDED</color>
 </resources>

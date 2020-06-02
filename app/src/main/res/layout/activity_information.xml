@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.InformationActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_foto"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="8dp"
+                android:alpha="@dimen/material_emphasis_high_type"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/producto" />
+
+            <TextView
+                android:id="@+id/titulo_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="36dp"
+                android:background="@drawable/first_category"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="15dp"
+                android:paddingTop="4dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="4dp"
+                android:text="@string/texto_id"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/campo_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="36dp"
+                android:fontFamily="sans-serif"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/titulo_descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="36dp"
+                android:background="@drawable/first_category"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="15dp"
+                android:paddingTop="4dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="4dp"
+                android:text="@string/texto_descripcion"
+                android:textAlignment="viewStart"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <EditText
+                android:id="@+id/campo_descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="36dp"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/titulo_precio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="36dp"
+                android:background="@drawable/first_category"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="15dp"
+                android:paddingTop="4dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="4dp"
+                android:text="@string/texto_precio"
+                android:textAlignment="viewStart"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <EditText
+                android:id="@+id/campo_precio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="36dp"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:inputType="number|numberDecimal"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/titulo_existencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="36dp"
+                android:background="@drawable/first_category"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="15dp"
+                android:paddingTop="4dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="4dp"
+                android:text="@string/texto_existencia"
+                android:textAlignment="viewStart"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <EditText
+                android:id="@+id/campo_existencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="36dp"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:inputType="number"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/titulo_codigo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="36dp"
+                android:background="@drawable/first_category"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="15dp"
+                android:paddingTop="4dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="4dp"
+                android:text="@string/texto_codigo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/campo_codigo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="36dp"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:inputType="number"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/titulo_codigobarra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="36dp"
+                android:background="@drawable/first_category"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="15dp"
+                android:paddingTop="4dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="4dp"
+                android:text="@string/texto_codigo_barras"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/campo_codigobarra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="36dp"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:inputType="number"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="14sp" />
+
+
+            <ImageButton
+                android:id="@+id/imgbtn_barra"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="36dp"
+                android:background="@drawable/button_optional"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/ic_camera_alt_black_24dp" />
+
+            <TextView
+                android:id="@+id/titulo_marca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="36dp"
+                android:background="@drawable/second_category"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="15dp"
+                android:paddingTop="4dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="4dp"
+                android:text="@string/texto_marca_comercial"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/campo_marca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="36dp"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/titulo_subcategoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="36dp"
+                android:background="@drawable/second_category"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="15dp"
+                android:paddingTop="4dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="4dp"
+                android:text="@string/texto_subdepartamento"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/campo_subcategoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="36dp"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/titulo_unidadmedida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="36dp"
+                android:background="@drawable/second_category"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="15dp"
+                android:paddingTop="4dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="4dp"
+                android:text="@string/texto_unidadmedida"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/campo_medida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="36dp"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/titulo_fechacreacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="36dp"
+                android:background="@drawable/third_category"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="15dp"
+                android:paddingTop="4dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="4dp"
+                android:text="@string/texto_fechacreacion"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/campo_fechacreacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="36dp"
+                android:fontFamily="sans-serif"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/titulo_usuariocrea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="36dp"
+                android:background="@drawable/third_category"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="15dp"
+                android:paddingTop="4dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="4dp"
+                android:text="@string/texto_usuariocrea"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/campo_usuariocrea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="36dp"
+                android:fontFamily="sans-serif"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/titulo_fechamodificacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="36dp"
+                android:background="@drawable/third_category"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="15dp"
+                android:paddingTop="4dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="4dp"
+                android:text="@string/texto_ultimamodificacion"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/campo_fechamodificacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="36dp"
+                android:fontFamily="sans-serif"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/titulo_usuarioModifica"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="36dp"
+                android:background="@drawable/third_category"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="15dp"
+                android:paddingTop="4dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="4dp"
+                android:text="@string/texto_usuariomodifica"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/campo_usuariomodifica"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="36dp"
+                android:fontFamily="sans-serif"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/titulo_ultimaCompra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="36dp"
+                android:background="@drawable/third_category"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="15dp"
+                android:paddingTop="4dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="4dp"
+                android:text="@string/texto_ultimacompra"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/campo_ultimacompra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="36dp"
+                android:fontFamily="sans-serif"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="14sp" />
+
+            <Switch
+                android:id="@+id/switch_modificar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="36dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/button_change"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="15dp"
+                android:paddingTop="4dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="4dp"
+                android:text="@string/texto_modificar"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_actualizar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="36dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/button_update"
+                android:text="@string/texto_actualizar" />
+
+            <Button
+                android:id="@+id/btn_eliminar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_cancel"
+                android:text="@string/texto_eliminar" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

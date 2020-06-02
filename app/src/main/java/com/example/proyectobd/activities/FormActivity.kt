@@ -1,19 +1,23 @@
-package com.example.proyectobd
+package com.example.proyectobd.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.androidnetworking.AndroidNetworking
+import com.example.proyectobd.Productos
+import com.example.proyectobd.R
+import com.example.proyectobd.clases.DatabaseHelper
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
 
-class MainActivity : AppCompatActivity() {
+class FormActivity : AppCompatActivity(), View.OnClickListener {
 
     internal var dbHelper = DatabaseHelper(this)
 
     fun mostrarToast(texto: String) {
-        Toast.makeText(this@MainActivity, texto, Toast.LENGTH_LONG).show()
+        Toast.makeText(this@FormActivity, texto, Toast.LENGTH_LONG).show()
     }
 
     fun mostrarDialogo(titulo: String, mensaje: String) {
@@ -37,23 +41,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        insertarDatos()
+        val objeto = intent.extras
+        val producto: Productos = objeto?.getSerializable("obj") as Productos
+        txt_id.setText(producto.idProducto.toString())
+
+        AndroidNetworking.initialize(getApplicationContext())
+        btn_agregar.setOnClickListener(this)
+        //insertarDatos()
         actualizarDatos()
         borrarDatos()
         mostrarTodos()
 
-    }
-
-    fun insertarDatos() {
-        btn_agregar.setOnClickListener {
-            try {
-                dbHelper.agregar(txt_nombre.text.toString(), txt_precio.text.toString(), txt_existencia.text.toString())
-                limpiarTexto()
-            } catch (e: Exception) {
-                e.printStackTrace()
-                mostrarToast(e.message.toString())
-            }
-        }
     }
 
     fun actualizarDatos() {
@@ -107,6 +105,13 @@ class MainActivity : AppCompatActivity() {
                 mostrarDialogo("Mostrando informacion ", buffer.toString())
             }
         )
+    }
+
+    override fun onClick(v: View) {
+        when(v.id) {
+            R.id.btn_agregar ->{
+            }
+        }
     }
 
 }
